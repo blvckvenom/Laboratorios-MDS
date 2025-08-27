@@ -1,0 +1,8 @@
+﻿*
+
+!texts/
+
+texts/*.txt
+
+!texts/171.txt
+
