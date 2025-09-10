@@ -1,0 +1,68 @@
+Pre procesamiento:
+
+Que se debe lograr? 
+
+Como saber que productos tienen mas
+chances de ser comprados en un momento dado? 
+
+Aplicar ciencia de datos para anticiparse
+a las necesidades del cliente
+
+Construir un modelo predictivo que:
+
+Cada semana pueda estimar la prob de compra
+de cada producto del portofolio
+
+Debe tener en cuenta:
+
+- Tipo de cliente
+- Frecuencia de entregas y visitas
+- Ubicacion geografica
+- Preferencias historicas de consumo
+- Caracteristicas del producto
+
+`clientes.parquet`: 
+- `customer_id`: identificador único del cliente.
+- `region_id`: identificador de la región geográfica
+donde se encuentra el cliente.
+- `customer_type`: tipo de cliente según el canal 
+comercial, por ejemplo, “TIENDA DE CONVENIENCIA”.
+- `Y`: coordenada geográfica de latitud.
+- `X`: coordenada geográfica de longitud.
+- `num_deliver_per_week`: cantidad de entregas 
+semanales que recibe el cliente.
+- `num_visit_per_week`: frecuencia de visitas de 
+la fuerza de ventas por semana.
+
+`productos.parquet`:
+- `product_id`: identificador único del producto.
+- `brand`: marca comercial del producto.
+- `category`: categoría general del producto, 
+como “BEBIDAS CARBONATADAS”.
+- `sub_category`: subcategoría dentro de la 
+categoría principal, por ejemplo, “GASEOSAS”.
+- `segment`: segmento de mercado al que pertenece 
+el producto, como “PREMIUM”.
+- `package`: tipo de envase del producto.
+- `size`: tamaño del producto en litros.
+
+`transacciones.parquet`: 
+- `customer_id`: identificador único del cliente 
+que realizó la compra.
+- `product_id`: identificador único del producto 
+comprado.
+- `purchase_date`: fecha en que se realizó la 
+transacción.
+- `order_id`: identificar de la orden de su pedido.
+- `payment`	monto total pagado por la transacción.
+
+
+Preparacion de datos: 
+
+- Transformaciones de tipo de dato (str, int, etc)
+- Cruce de información
+- Eliminación de duplicados
+- Filtros de fila y/o columnas
+
+
+
