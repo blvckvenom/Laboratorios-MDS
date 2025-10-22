@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/verga/Documents/U/10mo/laboratorio/Lab%208/mlruns/777847175767799592/29ab87b462794b9ba45694b803338e9b/artifacts
+end_time: 1760927192707
+entry_point_name: ''
+experiment_id: '777847175767799592'
+lifecycle_stage: active
+run_id: 29ab87b462794b9ba45694b803338e9b
+run_name: XGB lr=0.053 depth=8 subs=0.91 cols=0.87 est=800
+run_uuid: 29ab87b462794b9ba45694b803338e9b
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1760927190365
+status: 3
+tags: []
+user_id: verga
