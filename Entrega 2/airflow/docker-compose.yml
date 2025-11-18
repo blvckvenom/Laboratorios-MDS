@@ -7,7 +7,7 @@ x-airflow-common:
     &airflow-env
     AIRFLOW__CORE__EXECUTOR: LocalExecutor
     AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres:5432/airflow
-    AIRFLOW__CORE__FERNET_KEY: "CgN3zOim1CI5rfKKdSmWaqQTXmFDD6LHsjuwQJc-Uso="
+    AIRFLOW__CORE__FERNET_KEY: "FERNET_KEY"
     AIRFLOW__CORE__LOAD_EXAMPLES: "false"
     AIRFLOW__API__AUTH_BACKENDS: "airflow.api.auth.backend.basic_auth"
     _PIP_ADDITIONAL_REQUIREMENTS: "pandas pyarrow scikit-learn joblib scipy"
