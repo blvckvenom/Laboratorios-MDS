@@ -1,0 +1,33 @@
+{
+  "rmse": 7.968189690518249,
+  "r2": -0.3615617714107189,
+  "n_train": 3884,
+  "n_test": 972,
+  "features_used": [
+    "customer_id",
+    "product_id",
+    "order_id",
+    "region_id",
+    "zone_id",
+    "Y",
+    "X",
+    "num_deliver_per_week",
+    "num_visit_per_week",
+    "size"
+  ],
+  "rmse_full": 4.700985651291572,
+  "r2_full": 0.6866305641074611,
+  "n_samples_eval": 4856,
+  "features_used_eval": [
+    "customer_id",
+    "product_id",
+    "order_id",
+    "region_id",
+    "zone_id",
+    "Y",
+    "X",
+    "num_deliver_per_week",
+    "num_visit_per_week",
+    "size"
+  ]
+}

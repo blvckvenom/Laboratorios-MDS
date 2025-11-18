@@ -1,0 +1,64 @@
+[2025-11-18T22:16:01.171+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-11-18T22:16:01.195+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: sodai_training_and_scoring.generate_predictions manual__2025-11-18T22:15:51.767676+00:00 [queued]>
+[2025-11-18T22:16:01.203+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: sodai_training_and_scoring.generate_predictions manual__2025-11-18T22:15:51.767676+00:00 [queued]>
+[2025-11-18T22:16:01.204+0000] {taskinstance.py:2303} INFO - Starting attempt 1 of 1
+[2025-11-18T22:16:01.214+0000] {taskinstance.py:2327} INFO - Executing <Task(PythonOperator): generate_predictions> on 2025-11-18 22:15:51.767676+00:00
+[2025-11-18T22:16:01.219+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=3564) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-11-18T22:16:01.219+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'sodai_training_and_scoring', 'generate_predictions', 'manual__2025-11-18T22:15:51.767676+00:00', '--job-id', '29', '--raw', '--subdir', 'DAGS_FOLDER/sodai_pipeline_dag.py', '--cfg-path', '/tmp/tmpfr93h6kp']
+[2025-11-18T22:16:01.221+0000] {standard_task_runner.py:63} INFO - Started process 3575 to run task
+[2025-11-18T22:16:01.221+0000] {standard_task_runner.py:91} INFO - Job 29: Subtask generate_predictions
+[2025-11-18T22:16:01.287+0000] {task_command.py:426} INFO - Running <TaskInstance: sodai_training_and_scoring.generate_predictions manual__2025-11-18T22:15:51.767676+00:00 [running]> on host d619a904f7a8
+[2025-11-18T22:16:01.354+0000] {taskinstance.py:2644} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='vergara' AIRFLOW_CTX_DAG_ID='sodai_training_and_scoring' AIRFLOW_CTX_TASK_ID='generate_predictions' AIRFLOW_CTX_EXECUTION_DATE='2025-11-18T22:15:51.767676+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-11-18T22:15:51.767676+00:00'
+[2025-11-18T22:16:01.356+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-11-18T22:16:02.909+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/sklearn/ensemble/_base.py:168 UserWarning: Loky-backed parallel loops cannot be called in a multiprocessing, setting n_jobs=1
+[2025-11-18T22:16:03.058+0000] {logging_mixin.py:188} INFO - Primeras filas con predicción:
+[2025-11-18T22:16:03.063+0000] {logging_mixin.py:188} INFO -    customer_id  product_id  order_id purchase_date      items  region_id  zone_id customer_type          Y           X  num_deliver_per_week  num_visit_per_week     brand              category sub_category segment  package  size  prediction
+0        61353       61364    411145    2024-04-27  -0.333333         80     5148     ABARROTES -46.558718 -107.860564                     3                   1  Brand 35  BEBIDAS CARBONATADAS     GASEOSAS  MEDIUM  BOTELLA  1.00    0.472444
+1        61899        1370    411156    2024-04-27   3.666667         80     5148     MAYORISTA -46.557632 -107.896470                     3                   1  Brand 34  BEBIDAS CARBONATADAS     GASEOSAS  MEDIUM  BOTELLA  1.00    4.394444
+2       172056       61672    407162    2024-04-26   1.000000         80     5148     MAYORISTA -46.564528 -107.927651                     4                   1  Brand 34  BEBIDAS CARBONATADAS     GASEOSAS  MEDIUM     LATA  0.25    1.580000
+3       183912       61364    414656    2024-04-28  -0.333333         80     5148     ABARROTES -46.594018 -107.878458                     3                   1  Brand 35  BEBIDAS CARBONATADAS     GASEOSAS  MEDIUM  BOTELLA  1.00    0.158444
+4       187101       61542    411911    2024-04-27  17.000000         80     5148    RESTAURANT -46.546734 -107.924166                     3                   1   Brand 3  BEBIDAS CARBONATADAS     GASEOSAS  MEDIUM  BOTELLA  1.00   15.510000
+[2025-11-18T22:16:03.064+0000] {logging_mixin.py:188} INFO - Resumen de predicciones (predict.py):
+[2025-11-18T22:16:03.065+0000] {logging_mixin.py:188} INFO - {
+  "n_samples": 4856,
+  "columns": [
+    "customer_id",
+    "product_id",
+    "order_id",
+    "purchase_date",
+    "items",
+    "region_id",
+    "zone_id",
+    "customer_type",
+    "Y",
+    "X",
+    "num_deliver_per_week",
+    "num_visit_per_week",
+    "brand",
+    "category",
+    "sub_category",
+    "segment",
+    "package",
+    "size",
+    "prediction"
+  ],
+  "predictions_path": "/opt/***/artifacts/predictions/predicciones.parquet",
+  "features_used_for_prediction": [
+    "customer_id",
+    "product_id",
+    "order_id",
+    "region_id",
+    "zone_id",
+    "Y",
+    "X",
+    "num_deliver_per_week",
+    "num_visit_per_week",
+    "size"
+  ]
+}
+[2025-11-18T22:16:03.066+0000] {python.py:237} INFO - Done. Returned value was: None
+[2025-11-18T22:16:03.067+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-11-18T22:16:03.074+0000] {taskinstance.py:1205} INFO - Marking task as SUCCESS. dag_id=sodai_training_and_scoring, task_id=generate_predictions, execution_date=20251118T221551, start_date=20251118T221601, end_date=20251118T221603
+[2025-11-18T22:16:03.129+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-11-18T22:16:03.140+0000] {taskinstance.py:3482} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-11-18T22:16:03.142+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

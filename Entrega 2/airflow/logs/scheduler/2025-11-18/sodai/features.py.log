@@ -1,0 +1,240 @@
+[2025-11-18T05:32:03.094+0000] {processor.py:161} INFO - Started process (PID=193) to work on /opt/airflow/dags/sodai/features.py
+[2025-11-18T05:32:03.095+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/sodai/features.py for tasks to queue
+[2025-11-18T05:32:03.096+0000] {logging_mixin.py:188} INFO - [2025-11-18T05:32:03.096+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/sodai/features.py
+[2025-11-18T05:32:04.133+0000] {logging_mixin.py:188} INFO - [2025-11-18T05:32:04.128+0000] {dagbag.py:350} ERROR - Failed to import: /opt/airflow/dags/sodai/features.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 346, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/sodai/features.py", line 6, in <module>
+    from .config import (
+ImportError: attempted relative import with no known parent package
+[2025-11-18T05:32:04.141+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/sodai/features.py
+[2025-11-18T05:32:04.155+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/sodai/features.py took 0.982 seconds
+[2025-11-18T05:32:34.635+0000] {processor.py:161} INFO - Started process (PID=240) to work on /opt/airflow/dags/sodai/features.py
+[2025-11-18T05:32:34.636+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/sodai/features.py for tasks to queue
+[2025-11-18T05:32:34.638+0000] {logging_mixin.py:188} INFO - [2025-11-18T05:32:34.638+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/sodai/features.py
+[2025-11-18T05:32:34.843+0000] {logging_mixin.py:188} INFO - [2025-11-18T05:32:34.840+0000] {dagbag.py:350} ERROR - Failed to import: /opt/airflow/dags/sodai/features.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 346, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/sodai/features.py", line 6, in <module>
+    from .config import (
+ImportError: attempted relative import with no known parent package
+[2025-11-18T05:32:34.845+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/sodai/features.py
+[2025-11-18T05:32:34.858+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/sodai/features.py took 0.227 seconds
+[2025-11-18T05:33:05.190+0000] {processor.py:161} INFO - Started process (PID=282) to work on /opt/airflow/dags/sodai/features.py
+[2025-11-18T05:33:05.191+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/sodai/features.py for tasks to queue
+[2025-11-18T05:33:05.193+0000] {logging_mixin.py:188} INFO - [2025-11-18T05:33:05.193+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/sodai/features.py
+[2025-11-18T05:33:05.530+0000] {logging_mixin.py:188} INFO - [2025-11-18T05:33:05.527+0000] {dagbag.py:350} ERROR - Failed to import: /opt/airflow/dags/sodai/features.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 346, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/sodai/features.py", line 6, in <module>
+    from .config import (
+ImportError: attempted relative import with no known parent package
+[2025-11-18T05:33:05.531+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/sodai/features.py
+[2025-11-18T05:33:05.541+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/sodai/features.py took 0.356 seconds
+[2025-11-18T05:33:36.547+0000] {processor.py:161} INFO - Started process (PID=324) to work on /opt/airflow/dags/sodai/features.py
+[2025-11-18T05:33:36.547+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/sodai/features.py for tasks to queue
+[2025-11-18T05:33:36.549+0000] {logging_mixin.py:188} INFO - [2025-11-18T05:33:36.548+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/sodai/features.py
+[2025-11-18T05:33:36.918+0000] {logging_mixin.py:188} INFO - [2025-11-18T05:33:36.912+0000] {dagbag.py:350} ERROR - Failed to import: /opt/airflow/dags/sodai/features.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 346, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/sodai/features.py", line 6, in <module>
+    from .config import (
+ImportError: attempted relative import with no known parent package
+[2025-11-18T05:33:36.920+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/sodai/features.py
+[2025-11-18T05:33:36.931+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/sodai/features.py took 0.388 seconds
+[2025-11-18T05:34:06.986+0000] {processor.py:161} INFO - Started process (PID=366) to work on /opt/airflow/dags/sodai/features.py
+[2025-11-18T05:34:06.987+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/sodai/features.py for tasks to queue
+[2025-11-18T05:34:06.988+0000] {logging_mixin.py:188} INFO - [2025-11-18T05:34:06.988+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/sodai/features.py
+[2025-11-18T05:34:07.338+0000] {logging_mixin.py:188} INFO - [2025-11-18T05:34:07.335+0000] {dagbag.py:350} ERROR - Failed to import: /opt/airflow/dags/sodai/features.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 346, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/sodai/features.py", line 6, in <module>
+    from .config import (
+ImportError: attempted relative import with no known parent package
+[2025-11-18T05:34:07.339+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/sodai/features.py
+[2025-11-18T05:34:07.353+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/sodai/features.py took 0.372 seconds
+[2025-11-18T05:34:38.256+0000] {processor.py:161} INFO - Started process (PID=408) to work on /opt/airflow/dags/sodai/features.py
+[2025-11-18T05:34:38.257+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/sodai/features.py for tasks to queue
+[2025-11-18T05:34:38.258+0000] {logging_mixin.py:188} INFO - [2025-11-18T05:34:38.258+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/sodai/features.py
+[2025-11-18T05:34:38.591+0000] {logging_mixin.py:188} INFO - [2025-11-18T05:34:38.589+0000] {dagbag.py:350} ERROR - Failed to import: /opt/airflow/dags/sodai/features.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 346, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/sodai/features.py", line 6, in <module>
+    from .config import (
+ImportError: attempted relative import with no known parent package
+[2025-11-18T05:34:38.592+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/sodai/features.py
+[2025-11-18T05:34:38.603+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/sodai/features.py took 0.352 seconds
+[2025-11-18T05:35:08.824+0000] {processor.py:161} INFO - Started process (PID=450) to work on /opt/airflow/dags/sodai/features.py
+[2025-11-18T05:35:08.826+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/sodai/features.py for tasks to queue
+[2025-11-18T05:35:08.828+0000] {logging_mixin.py:188} INFO - [2025-11-18T05:35:08.827+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/sodai/features.py
+[2025-11-18T05:35:09.203+0000] {logging_mixin.py:188} INFO - [2025-11-18T05:35:09.199+0000] {dagbag.py:350} ERROR - Failed to import: /opt/airflow/dags/sodai/features.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 346, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/sodai/features.py", line 6, in <module>
+    from .config import (
+ImportError: attempted relative import with no known parent package
+[2025-11-18T05:35:09.204+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/sodai/features.py
+[2025-11-18T05:35:09.215+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/sodai/features.py took 0.398 seconds
+[2025-11-18T05:35:39.554+0000] {processor.py:161} INFO - Started process (PID=492) to work on /opt/airflow/dags/sodai/features.py
+[2025-11-18T05:35:39.555+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/sodai/features.py for tasks to queue
+[2025-11-18T05:35:39.557+0000] {logging_mixin.py:188} INFO - [2025-11-18T05:35:39.557+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/sodai/features.py
+[2025-11-18T05:35:39.919+0000] {logging_mixin.py:188} INFO - [2025-11-18T05:35:39.917+0000] {dagbag.py:350} ERROR - Failed to import: /opt/airflow/dags/sodai/features.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 346, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/sodai/features.py", line 6, in <module>
+    from .config import (
+ImportError: attempted relative import with no known parent package
+[2025-11-18T05:35:39.921+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/sodai/features.py
+[2025-11-18T05:35:39.932+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/sodai/features.py took 0.384 seconds
+[2025-11-18T05:36:10.083+0000] {processor.py:161} INFO - Started process (PID=534) to work on /opt/airflow/dags/sodai/features.py
+[2025-11-18T05:36:10.088+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/sodai/features.py for tasks to queue
+[2025-11-18T05:36:10.093+0000] {logging_mixin.py:188} INFO - [2025-11-18T05:36:10.092+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/sodai/features.py
+[2025-11-18T05:36:10.439+0000] {logging_mixin.py:188} INFO - [2025-11-18T05:36:10.419+0000] {dagbag.py:350} ERROR - Failed to import: /opt/airflow/dags/sodai/features.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 346, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/sodai/features.py", line 6, in <module>
+    from .config import (
+ImportError: attempted relative import with no known parent package
+[2025-11-18T05:36:10.447+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/sodai/features.py
+[2025-11-18T05:36:10.460+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/sodai/features.py took 0.381 seconds
+[2025-11-18T05:36:41.147+0000] {processor.py:161} INFO - Started process (PID=576) to work on /opt/airflow/dags/sodai/features.py
+[2025-11-18T05:36:41.148+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/sodai/features.py for tasks to queue
+[2025-11-18T05:36:41.150+0000] {logging_mixin.py:188} INFO - [2025-11-18T05:36:41.150+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/sodai/features.py
+[2025-11-18T05:36:41.503+0000] {logging_mixin.py:188} INFO - [2025-11-18T05:36:41.500+0000] {dagbag.py:350} ERROR - Failed to import: /opt/airflow/dags/sodai/features.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 346, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/sodai/features.py", line 6, in <module>
+    from .config import (
+ImportError: attempted relative import with no known parent package
+[2025-11-18T05:36:41.504+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/sodai/features.py
+[2025-11-18T05:36:41.515+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/sodai/features.py took 0.373 seconds
+[2025-11-18T05:37:11.708+0000] {processor.py:161} INFO - Started process (PID=618) to work on /opt/airflow/dags/sodai/features.py
+[2025-11-18T05:37:11.709+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/sodai/features.py for tasks to queue
+[2025-11-18T05:37:11.710+0000] {logging_mixin.py:188} INFO - [2025-11-18T05:37:11.710+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/sodai/features.py
+[2025-11-18T05:37:12.055+0000] {logging_mixin.py:188} INFO - [2025-11-18T05:37:12.052+0000] {dagbag.py:350} ERROR - Failed to import: /opt/airflow/dags/sodai/features.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 346, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/sodai/features.py", line 6, in <module>
+    from .config import (
+ImportError: attempted relative import with no known parent package
+[2025-11-18T05:37:12.057+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/sodai/features.py
+[2025-11-18T05:37:12.068+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/sodai/features.py took 0.364 seconds
+[2025-11-18T05:37:42.233+0000] {processor.py:161} INFO - Started process (PID=665) to work on /opt/airflow/dags/sodai/features.py
+[2025-11-18T05:37:42.236+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/sodai/features.py for tasks to queue
+[2025-11-18T05:37:42.239+0000] {logging_mixin.py:188} INFO - [2025-11-18T05:37:42.238+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/sodai/features.py
+[2025-11-18T05:37:42.598+0000] {logging_mixin.py:188} INFO - [2025-11-18T05:37:42.594+0000] {dagbag.py:350} ERROR - Failed to import: /opt/airflow/dags/sodai/features.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 346, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/sodai/features.py", line 6, in <module>
+    from .config import (
+ImportError: attempted relative import with no known parent package
+[2025-11-18T05:37:42.599+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/sodai/features.py
+[2025-11-18T05:37:42.610+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/sodai/features.py took 0.381 seconds
+[2025-11-18T05:37:57.561+0000] {processor.py:161} INFO - Started process (PID=687) to work on /opt/airflow/dags/sodai/features.py
+[2025-11-18T05:37:57.565+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/sodai/features.py for tasks to queue
+[2025-11-18T05:37:57.566+0000] {logging_mixin.py:188} INFO - [2025-11-18T05:37:57.566+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/sodai/features.py
+[2025-11-18T05:37:57.578+0000] {logging_mixin.py:188} INFO - [2025-11-18T05:37:57.578+0000] {dagbag.py:329} INFO - File /opt/airflow/dags/sodai/features.py assumed to contain no DAGs. Skipping.
+[2025-11-18T05:37:57.578+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/sodai/features.py
+[2025-11-18T05:37:57.590+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/sodai/features.py took 0.034 seconds
+[2025-11-18T05:38:00.857+0000] {processor.py:161} INFO - Started process (PID=692) to work on /opt/airflow/dags/sodai/features.py
+[2025-11-18T05:38:00.863+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/sodai/features.py for tasks to queue
+[2025-11-18T05:38:00.871+0000] {logging_mixin.py:188} INFO - [2025-11-18T05:38:00.871+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/sodai/features.py
+[2025-11-18T05:38:01.054+0000] {logging_mixin.py:188} INFO - [2025-11-18T05:38:01.053+0000] {dagbag.py:329} INFO - File /opt/airflow/dags/sodai/features.py assumed to contain no DAGs. Skipping.
+[2025-11-18T05:38:01.056+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/sodai/features.py
+[2025-11-18T05:38:01.068+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/sodai/features.py took 0.216 seconds
+[2025-11-18T05:38:02.825+0000] {processor.py:161} INFO - Started process (PID=697) to work on /opt/airflow/dags/sodai/features.py
+[2025-11-18T05:38:02.827+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/sodai/features.py for tasks to queue
+[2025-11-18T05:38:02.829+0000] {logging_mixin.py:188} INFO - [2025-11-18T05:38:02.829+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/sodai/features.py
+[2025-11-18T05:38:02.840+0000] {logging_mixin.py:188} INFO - [2025-11-18T05:38:02.840+0000] {dagbag.py:329} INFO - File /opt/airflow/dags/sodai/features.py assumed to contain no DAGs. Skipping.
+[2025-11-18T05:38:02.841+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/sodai/features.py
+[2025-11-18T05:38:02.852+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/sodai/features.py took 0.032 seconds
+[2025-11-18T05:38:05.008+0000] {processor.py:161} INFO - Started process (PID=702) to work on /opt/airflow/dags/sodai/features.py
+[2025-11-18T05:38:05.009+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/sodai/features.py for tasks to queue
+[2025-11-18T05:38:05.011+0000] {logging_mixin.py:188} INFO - [2025-11-18T05:38:05.010+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/sodai/features.py
+[2025-11-18T05:38:05.041+0000] {logging_mixin.py:188} INFO - [2025-11-18T05:38:05.041+0000] {dagbag.py:329} INFO - File /opt/airflow/dags/sodai/features.py assumed to contain no DAGs. Skipping.
+[2025-11-18T05:38:05.042+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/sodai/features.py
+[2025-11-18T05:38:05.055+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/sodai/features.py took 0.052 seconds
+[2025-11-18T05:38:09.130+0000] {processor.py:161} INFO - Started process (PID=707) to work on /opt/airflow/dags/sodai/features.py
+[2025-11-18T05:38:09.131+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/sodai/features.py for tasks to queue
+[2025-11-18T05:38:09.133+0000] {logging_mixin.py:188} INFO - [2025-11-18T05:38:09.133+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/sodai/features.py
+[2025-11-18T05:38:09.145+0000] {logging_mixin.py:188} INFO - [2025-11-18T05:38:09.144+0000] {dagbag.py:329} INFO - File /opt/airflow/dags/sodai/features.py assumed to contain no DAGs. Skipping.
+[2025-11-18T05:38:09.145+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/sodai/features.py
+[2025-11-18T05:38:09.156+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/sodai/features.py took 0.031 seconds
+[2025-11-18T05:38:39.561+0000] {processor.py:161} INFO - Started process (PID=728) to work on /opt/airflow/dags/sodai/features.py
+[2025-11-18T05:38:39.562+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/sodai/features.py for tasks to queue
+[2025-11-18T05:38:39.565+0000] {logging_mixin.py:188} INFO - [2025-11-18T05:38:39.564+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/sodai/features.py
+[2025-11-18T05:38:39.572+0000] {logging_mixin.py:188} INFO - [2025-11-18T05:38:39.572+0000] {dagbag.py:329} INFO - File /opt/airflow/dags/sodai/features.py assumed to contain no DAGs. Skipping.
+[2025-11-18T05:38:39.572+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/sodai/features.py
+[2025-11-18T05:38:39.583+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/sodai/features.py took 0.027 seconds
+[2025-11-18T05:39:10.282+0000] {processor.py:161} INFO - Started process (PID=749) to work on /opt/airflow/dags/sodai/features.py
+[2025-11-18T05:39:10.289+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/sodai/features.py for tasks to queue
+[2025-11-18T05:39:10.291+0000] {logging_mixin.py:188} INFO - [2025-11-18T05:39:10.291+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/sodai/features.py
+[2025-11-18T05:39:10.364+0000] {logging_mixin.py:188} INFO - [2025-11-18T05:39:10.364+0000] {dagbag.py:329} INFO - File /opt/airflow/dags/sodai/features.py assumed to contain no DAGs. Skipping.
+[2025-11-18T05:39:10.368+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/sodai/features.py
+[2025-11-18T05:39:10.380+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/sodai/features.py took 0.103 seconds
+[2025-11-18T05:39:40.802+0000] {processor.py:161} INFO - Started process (PID=770) to work on /opt/airflow/dags/sodai/features.py
+[2025-11-18T05:39:40.803+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/sodai/features.py for tasks to queue
+[2025-11-18T05:39:40.804+0000] {logging_mixin.py:188} INFO - [2025-11-18T05:39:40.803+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/sodai/features.py
+[2025-11-18T05:39:40.810+0000] {logging_mixin.py:188} INFO - [2025-11-18T05:39:40.810+0000] {dagbag.py:329} INFO - File /opt/airflow/dags/sodai/features.py assumed to contain no DAGs. Skipping.
+[2025-11-18T05:39:40.810+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/sodai/features.py
+[2025-11-18T05:39:40.822+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/sodai/features.py took 0.024 seconds
+[2025-11-18T05:40:11.420+0000] {processor.py:161} INFO - Started process (PID=791) to work on /opt/airflow/dags/sodai/features.py
+[2025-11-18T05:40:11.421+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/sodai/features.py for tasks to queue
+[2025-11-18T05:40:11.422+0000] {logging_mixin.py:188} INFO - [2025-11-18T05:40:11.422+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/sodai/features.py
+[2025-11-18T05:40:11.428+0000] {logging_mixin.py:188} INFO - [2025-11-18T05:40:11.427+0000] {dagbag.py:329} INFO - File /opt/airflow/dags/sodai/features.py assumed to contain no DAGs. Skipping.
+[2025-11-18T05:40:11.428+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/sodai/features.py
+[2025-11-18T05:40:11.438+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/sodai/features.py took 0.023 seconds
+[2025-11-18T05:40:42.176+0000] {processor.py:161} INFO - Started process (PID=812) to work on /opt/airflow/dags/sodai/features.py
+[2025-11-18T05:40:42.194+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/sodai/features.py for tasks to queue
+[2025-11-18T05:40:42.196+0000] {logging_mixin.py:188} INFO - [2025-11-18T05:40:42.196+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/sodai/features.py
+[2025-11-18T05:40:42.202+0000] {logging_mixin.py:188} INFO - [2025-11-18T05:40:42.202+0000] {dagbag.py:329} INFO - File /opt/airflow/dags/sodai/features.py assumed to contain no DAGs. Skipping.
+[2025-11-18T05:40:42.202+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/sodai/features.py
+[2025-11-18T05:40:42.214+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/sodai/features.py took 0.042 seconds
+[2025-11-18T05:41:12.804+0000] {processor.py:161} INFO - Started process (PID=833) to work on /opt/airflow/dags/sodai/features.py
+[2025-11-18T05:41:12.805+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/sodai/features.py for tasks to queue
+[2025-11-18T05:41:12.806+0000] {logging_mixin.py:188} INFO - [2025-11-18T05:41:12.806+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/sodai/features.py
+[2025-11-18T05:41:12.810+0000] {logging_mixin.py:188} INFO - [2025-11-18T05:41:12.810+0000] {dagbag.py:329} INFO - File /opt/airflow/dags/sodai/features.py assumed to contain no DAGs. Skipping.
+[2025-11-18T05:41:12.810+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/sodai/features.py
+[2025-11-18T05:41:12.821+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/sodai/features.py took 0.021 seconds
+[2025-11-18T05:41:43.132+0000] {processor.py:161} INFO - Started process (PID=854) to work on /opt/airflow/dags/sodai/features.py
+[2025-11-18T05:41:43.133+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/sodai/features.py for tasks to queue
+[2025-11-18T05:41:43.134+0000] {logging_mixin.py:188} INFO - [2025-11-18T05:41:43.133+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/sodai/features.py
+[2025-11-18T05:41:43.140+0000] {logging_mixin.py:188} INFO - [2025-11-18T05:41:43.140+0000] {dagbag.py:329} INFO - File /opt/airflow/dags/sodai/features.py assumed to contain no DAGs. Skipping.
+[2025-11-18T05:41:43.140+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/sodai/features.py
+[2025-11-18T05:41:43.150+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/sodai/features.py took 0.022 seconds

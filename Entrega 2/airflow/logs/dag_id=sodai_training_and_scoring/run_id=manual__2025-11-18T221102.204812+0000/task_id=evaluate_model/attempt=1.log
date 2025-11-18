@@ -1,0 +1,39 @@
+[2025-11-18T22:11:08.117+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-11-18T22:11:08.139+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: sodai_training_and_scoring.evaluate_model manual__2025-11-18T22:11:02.204812+00:00 [queued]>
+[2025-11-18T22:11:08.153+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: sodai_training_and_scoring.evaluate_model manual__2025-11-18T22:11:02.204812+00:00 [queued]>
+[2025-11-18T22:11:08.153+0000] {taskinstance.py:2303} INFO - Starting attempt 1 of 1
+[2025-11-18T22:11:08.162+0000] {taskinstance.py:2327} INFO - Executing <Task(PythonOperator): evaluate_model> on 2025-11-18 22:11:02.204812+00:00
+[2025-11-18T22:11:08.168+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=3192) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-11-18T22:11:08.169+0000] {standard_task_runner.py:63} INFO - Started process 3193 to run task
+[2025-11-18T22:11:08.168+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'sodai_training_and_scoring', 'evaluate_model', 'manual__2025-11-18T22:11:02.204812+00:00', '--job-id', '22', '--raw', '--subdir', 'DAGS_FOLDER/sodai_pipeline_dag.py', '--cfg-path', '/tmp/tmpbdfxefdc']
+[2025-11-18T22:11:08.169+0000] {standard_task_runner.py:91} INFO - Job 22: Subtask evaluate_model
+[2025-11-18T22:11:08.212+0000] {task_command.py:426} INFO - Running <TaskInstance: sodai_training_and_scoring.evaluate_model manual__2025-11-18T22:11:02.204812+00:00 [running]> on host d619a904f7a8
+[2025-11-18T22:11:08.268+0000] {taskinstance.py:2644} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='vergara' AIRFLOW_CTX_DAG_ID='sodai_training_and_scoring' AIRFLOW_CTX_TASK_ID='evaluate_model' AIRFLOW_CTX_EXECUTION_DATE='2025-11-18T22:11:02.204812+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-11-18T22:11:02.204812+00:00'
+[2025-11-18T22:11:08.269+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-11-18T22:11:09.178+0000] {logging_mixin.py:188} INFO - Evaluando modelo con las siguientes features:
+[2025-11-18T22:11:09.179+0000] {logging_mixin.py:188} INFO - ['customer_id', 'product_id', 'order_id', 'region_id', 'zone_id', 'Y', 'X', 'num_deliver_per_week', 'num_visit_per_week', 'size']
+[2025-11-18T22:11:09.749+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/sklearn/ensemble/_base.py:168 UserWarning: Loky-backed parallel loops cannot be called in a multiprocessing, setting n_jobs=1
+[2025-11-18T22:11:09.846+0000] {logging_mixin.py:188} INFO - Métricas de evaluación (evaluate.py):
+[2025-11-18T22:11:09.847+0000] {logging_mixin.py:188} INFO - {
+  "rmse_full": 4.700985651291572,
+  "r2_full": 0.6866305641074611,
+  "n_samples_eval": 4856,
+  "features_used_eval": [
+    "customer_id",
+    "product_id",
+    "order_id",
+    "region_id",
+    "zone_id",
+    "Y",
+    "X",
+    "num_deliver_per_week",
+    "num_visit_per_week",
+    "size"
+  ]
+}
+[2025-11-18T22:11:09.856+0000] {python.py:237} INFO - Done. Returned value was: None
+[2025-11-18T22:11:09.856+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-11-18T22:11:09.863+0000] {taskinstance.py:1205} INFO - Marking task as SUCCESS. dag_id=sodai_training_and_scoring, task_id=evaluate_model, execution_date=20251118T221102, start_date=20251118T221108, end_date=20251118T221109
+[2025-11-18T22:11:09.922+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-11-18T22:11:09.940+0000] {taskinstance.py:3482} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-11-18T22:11:09.942+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

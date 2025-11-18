@@ -1,0 +1,220 @@
+[2025-11-18T05:32:04.190+0000] {processor.py:161} INFO - Started process (PID=208) to work on /opt/airflow/dags/sodai/data_io.py
+[2025-11-18T05:32:04.191+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/sodai/data_io.py for tasks to queue
+[2025-11-18T05:32:04.193+0000] {logging_mixin.py:188} INFO - [2025-11-18T05:32:04.193+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/sodai/data_io.py
+[2025-11-18T05:32:04.452+0000] {logging_mixin.py:188} INFO - [2025-11-18T05:32:04.448+0000] {dagbag.py:350} ERROR - Failed to import: /opt/airflow/dags/sodai/data_io.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 346, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/sodai/data_io.py", line 5, in <module>
+    from .config import BASE_DATA_DIR, ARTIFACTS_DIR
+ImportError: attempted relative import with no known parent package
+[2025-11-18T05:32:04.454+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/sodai/data_io.py
+[2025-11-18T05:32:04.469+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/sodai/data_io.py took 0.284 seconds
+[2025-11-18T05:32:34.635+0000] {processor.py:161} INFO - Started process (PID=243) to work on /opt/airflow/dags/sodai/data_io.py
+[2025-11-18T05:32:34.636+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/sodai/data_io.py for tasks to queue
+[2025-11-18T05:32:34.638+0000] {logging_mixin.py:188} INFO - [2025-11-18T05:32:34.638+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/sodai/data_io.py
+[2025-11-18T05:32:34.843+0000] {logging_mixin.py:188} INFO - [2025-11-18T05:32:34.840+0000] {dagbag.py:350} ERROR - Failed to import: /opt/airflow/dags/sodai/data_io.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 346, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/sodai/data_io.py", line 5, in <module>
+    from .config import BASE_DATA_DIR, ARTIFACTS_DIR
+ImportError: attempted relative import with no known parent package
+[2025-11-18T05:32:34.845+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/sodai/data_io.py
+[2025-11-18T05:32:34.858+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/sodai/data_io.py took 0.227 seconds
+[2025-11-18T05:33:05.195+0000] {processor.py:161} INFO - Started process (PID=285) to work on /opt/airflow/dags/sodai/data_io.py
+[2025-11-18T05:33:05.196+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/sodai/data_io.py for tasks to queue
+[2025-11-18T05:33:05.197+0000] {logging_mixin.py:188} INFO - [2025-11-18T05:33:05.197+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/sodai/data_io.py
+[2025-11-18T05:33:05.530+0000] {logging_mixin.py:188} INFO - [2025-11-18T05:33:05.527+0000] {dagbag.py:350} ERROR - Failed to import: /opt/airflow/dags/sodai/data_io.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 346, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/sodai/data_io.py", line 5, in <module>
+    from .config import BASE_DATA_DIR, ARTIFACTS_DIR
+ImportError: attempted relative import with no known parent package
+[2025-11-18T05:33:05.531+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/sodai/data_io.py
+[2025-11-18T05:33:05.542+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/sodai/data_io.py took 0.352 seconds
+[2025-11-18T05:33:36.549+0000] {processor.py:161} INFO - Started process (PID=327) to work on /opt/airflow/dags/sodai/data_io.py
+[2025-11-18T05:33:36.550+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/sodai/data_io.py for tasks to queue
+[2025-11-18T05:33:36.551+0000] {logging_mixin.py:188} INFO - [2025-11-18T05:33:36.551+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/sodai/data_io.py
+[2025-11-18T05:33:36.918+0000] {logging_mixin.py:188} INFO - [2025-11-18T05:33:36.911+0000] {dagbag.py:350} ERROR - Failed to import: /opt/airflow/dags/sodai/data_io.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 346, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/sodai/data_io.py", line 5, in <module>
+    from .config import BASE_DATA_DIR, ARTIFACTS_DIR
+ImportError: attempted relative import with no known parent package
+[2025-11-18T05:33:36.920+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/sodai/data_io.py
+[2025-11-18T05:33:36.931+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/sodai/data_io.py took 0.386 seconds
+[2025-11-18T05:34:06.986+0000] {processor.py:161} INFO - Started process (PID=369) to work on /opt/airflow/dags/sodai/data_io.py
+[2025-11-18T05:34:06.987+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/sodai/data_io.py for tasks to queue
+[2025-11-18T05:34:06.988+0000] {logging_mixin.py:188} INFO - [2025-11-18T05:34:06.988+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/sodai/data_io.py
+[2025-11-18T05:34:07.338+0000] {logging_mixin.py:188} INFO - [2025-11-18T05:34:07.335+0000] {dagbag.py:350} ERROR - Failed to import: /opt/airflow/dags/sodai/data_io.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 346, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/sodai/data_io.py", line 5, in <module>
+    from .config import BASE_DATA_DIR, ARTIFACTS_DIR
+ImportError: attempted relative import with no known parent package
+[2025-11-18T05:34:07.339+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/sodai/data_io.py
+[2025-11-18T05:34:07.352+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/sodai/data_io.py took 0.371 seconds
+[2025-11-18T05:34:38.261+0000] {processor.py:161} INFO - Started process (PID=411) to work on /opt/airflow/dags/sodai/data_io.py
+[2025-11-18T05:34:38.262+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/sodai/data_io.py for tasks to queue
+[2025-11-18T05:34:38.263+0000] {logging_mixin.py:188} INFO - [2025-11-18T05:34:38.263+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/sodai/data_io.py
+[2025-11-18T05:34:38.592+0000] {logging_mixin.py:188} INFO - [2025-11-18T05:34:38.590+0000] {dagbag.py:350} ERROR - Failed to import: /opt/airflow/dags/sodai/data_io.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 346, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/sodai/data_io.py", line 5, in <module>
+    from .config import BASE_DATA_DIR, ARTIFACTS_DIR
+ImportError: attempted relative import with no known parent package
+[2025-11-18T05:34:38.594+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/sodai/data_io.py
+[2025-11-18T05:34:38.603+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/sodai/data_io.py took 0.347 seconds
+[2025-11-18T05:35:08.829+0000] {processor.py:161} INFO - Started process (PID=453) to work on /opt/airflow/dags/sodai/data_io.py
+[2025-11-18T05:35:08.831+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/sodai/data_io.py for tasks to queue
+[2025-11-18T05:35:08.832+0000] {logging_mixin.py:188} INFO - [2025-11-18T05:35:08.832+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/sodai/data_io.py
+[2025-11-18T05:35:09.189+0000] {logging_mixin.py:188} INFO - [2025-11-18T05:35:09.186+0000] {dagbag.py:350} ERROR - Failed to import: /opt/airflow/dags/sodai/data_io.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 346, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/sodai/data_io.py", line 5, in <module>
+    from .config import BASE_DATA_DIR, ARTIFACTS_DIR
+ImportError: attempted relative import with no known parent package
+[2025-11-18T05:35:09.190+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/sodai/data_io.py
+[2025-11-18T05:35:09.202+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/sodai/data_io.py took 0.377 seconds
+[2025-11-18T05:35:39.562+0000] {processor.py:161} INFO - Started process (PID=495) to work on /opt/airflow/dags/sodai/data_io.py
+[2025-11-18T05:35:39.563+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/sodai/data_io.py for tasks to queue
+[2025-11-18T05:35:39.565+0000] {logging_mixin.py:188} INFO - [2025-11-18T05:35:39.565+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/sodai/data_io.py
+[2025-11-18T05:35:39.919+0000] {logging_mixin.py:188} INFO - [2025-11-18T05:35:39.917+0000] {dagbag.py:350} ERROR - Failed to import: /opt/airflow/dags/sodai/data_io.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 346, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/sodai/data_io.py", line 5, in <module>
+    from .config import BASE_DATA_DIR, ARTIFACTS_DIR
+ImportError: attempted relative import with no known parent package
+[2025-11-18T05:35:39.921+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/sodai/data_io.py
+[2025-11-18T05:35:39.933+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/sodai/data_io.py took 0.375 seconds
+[2025-11-18T05:36:10.088+0000] {processor.py:161} INFO - Started process (PID=537) to work on /opt/airflow/dags/sodai/data_io.py
+[2025-11-18T05:36:10.092+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/sodai/data_io.py for tasks to queue
+[2025-11-18T05:36:10.094+0000] {logging_mixin.py:188} INFO - [2025-11-18T05:36:10.093+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/sodai/data_io.py
+[2025-11-18T05:36:10.449+0000] {logging_mixin.py:188} INFO - [2025-11-18T05:36:10.436+0000] {dagbag.py:350} ERROR - Failed to import: /opt/airflow/dags/sodai/data_io.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 346, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/sodai/data_io.py", line 5, in <module>
+    from .config import BASE_DATA_DIR, ARTIFACTS_DIR
+ImportError: attempted relative import with no known parent package
+[2025-11-18T05:36:10.454+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/sodai/data_io.py
+[2025-11-18T05:36:10.466+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/sodai/data_io.py took 0.383 seconds
+[2025-11-18T05:36:41.151+0000] {processor.py:161} INFO - Started process (PID=579) to work on /opt/airflow/dags/sodai/data_io.py
+[2025-11-18T05:36:41.152+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/sodai/data_io.py for tasks to queue
+[2025-11-18T05:36:41.153+0000] {logging_mixin.py:188} INFO - [2025-11-18T05:36:41.153+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/sodai/data_io.py
+[2025-11-18T05:36:41.503+0000] {logging_mixin.py:188} INFO - [2025-11-18T05:36:41.500+0000] {dagbag.py:350} ERROR - Failed to import: /opt/airflow/dags/sodai/data_io.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 346, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/sodai/data_io.py", line 5, in <module>
+    from .config import BASE_DATA_DIR, ARTIFACTS_DIR
+ImportError: attempted relative import with no known parent package
+[2025-11-18T05:36:41.504+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/sodai/data_io.py
+[2025-11-18T05:36:41.516+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/sodai/data_io.py took 0.369 seconds
+[2025-11-18T05:37:11.710+0000] {processor.py:161} INFO - Started process (PID=621) to work on /opt/airflow/dags/sodai/data_io.py
+[2025-11-18T05:37:11.711+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/sodai/data_io.py for tasks to queue
+[2025-11-18T05:37:11.712+0000] {logging_mixin.py:188} INFO - [2025-11-18T05:37:11.712+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/sodai/data_io.py
+[2025-11-18T05:37:12.057+0000] {logging_mixin.py:188} INFO - [2025-11-18T05:37:12.053+0000] {dagbag.py:350} ERROR - Failed to import: /opt/airflow/dags/sodai/data_io.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 346, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/sodai/data_io.py", line 5, in <module>
+    from .config import BASE_DATA_DIR, ARTIFACTS_DIR
+ImportError: attempted relative import with no known parent package
+[2025-11-18T05:37:12.058+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/sodai/data_io.py
+[2025-11-18T05:37:12.068+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/sodai/data_io.py took 0.362 seconds
+[2025-11-18T05:37:40.189+0000] {processor.py:161} INFO - Started process (PID=660) to work on /opt/airflow/dags/sodai/data_io.py
+[2025-11-18T05:37:40.191+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/sodai/data_io.py for tasks to queue
+[2025-11-18T05:37:40.192+0000] {logging_mixin.py:188} INFO - [2025-11-18T05:37:40.192+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/sodai/data_io.py
+[2025-11-18T05:37:40.198+0000] {logging_mixin.py:188} INFO - [2025-11-18T05:37:40.198+0000] {dagbag.py:329} INFO - File /opt/airflow/dags/sodai/data_io.py assumed to contain no DAGs. Skipping.
+[2025-11-18T05:37:40.198+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/sodai/data_io.py
+[2025-11-18T05:37:40.210+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/sodai/data_io.py took 0.026 seconds
+[2025-11-18T05:37:43.276+0000] {processor.py:161} INFO - Started process (PID=671) to work on /opt/airflow/dags/sodai/data_io.py
+[2025-11-18T05:37:43.277+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/sodai/data_io.py for tasks to queue
+[2025-11-18T05:37:43.278+0000] {logging_mixin.py:188} INFO - [2025-11-18T05:37:43.278+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/sodai/data_io.py
+[2025-11-18T05:37:43.283+0000] {logging_mixin.py:188} INFO - [2025-11-18T05:37:43.283+0000] {dagbag.py:329} INFO - File /opt/airflow/dags/sodai/data_io.py assumed to contain no DAGs. Skipping.
+[2025-11-18T05:37:43.283+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/sodai/data_io.py
+[2025-11-18T05:37:43.298+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/sodai/data_io.py took 0.027 seconds
+[2025-11-18T05:37:45.377+0000] {processor.py:161} INFO - Started process (PID=676) to work on /opt/airflow/dags/sodai/data_io.py
+[2025-11-18T05:37:45.378+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/sodai/data_io.py for tasks to queue
+[2025-11-18T05:37:45.379+0000] {logging_mixin.py:188} INFO - [2025-11-18T05:37:45.379+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/sodai/data_io.py
+[2025-11-18T05:37:45.391+0000] {logging_mixin.py:188} INFO - [2025-11-18T05:37:45.391+0000] {dagbag.py:329} INFO - File /opt/airflow/dags/sodai/data_io.py assumed to contain no DAGs. Skipping.
+[2025-11-18T05:37:45.391+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/sodai/data_io.py
+[2025-11-18T05:37:45.400+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/sodai/data_io.py took 0.028 seconds
+[2025-11-18T05:38:16.215+0000] {processor.py:161} INFO - Started process (PID=717) to work on /opt/airflow/dags/sodai/data_io.py
+[2025-11-18T05:38:16.215+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/sodai/data_io.py for tasks to queue
+[2025-11-18T05:38:16.217+0000] {logging_mixin.py:188} INFO - [2025-11-18T05:38:16.217+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/sodai/data_io.py
+[2025-11-18T05:38:16.224+0000] {logging_mixin.py:188} INFO - [2025-11-18T05:38:16.224+0000] {dagbag.py:329} INFO - File /opt/airflow/dags/sodai/data_io.py assumed to contain no DAGs. Skipping.
+[2025-11-18T05:38:16.224+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/sodai/data_io.py
+[2025-11-18T05:38:16.234+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/sodai/data_io.py took 0.024 seconds
+[2025-11-18T05:38:46.655+0000] {processor.py:161} INFO - Started process (PID=738) to work on /opt/airflow/dags/sodai/data_io.py
+[2025-11-18T05:38:46.656+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/sodai/data_io.py for tasks to queue
+[2025-11-18T05:38:46.658+0000] {logging_mixin.py:188} INFO - [2025-11-18T05:38:46.658+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/sodai/data_io.py
+[2025-11-18T05:38:46.670+0000] {logging_mixin.py:188} INFO - [2025-11-18T05:38:46.670+0000] {dagbag.py:329} INFO - File /opt/airflow/dags/sodai/data_io.py assumed to contain no DAGs. Skipping.
+[2025-11-18T05:38:46.671+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/sodai/data_io.py
+[2025-11-18T05:38:46.682+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/sodai/data_io.py took 0.032 seconds
+[2025-11-18T05:39:17.393+0000] {processor.py:161} INFO - Started process (PID=759) to work on /opt/airflow/dags/sodai/data_io.py
+[2025-11-18T05:39:17.394+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/sodai/data_io.py for tasks to queue
+[2025-11-18T05:39:17.395+0000] {logging_mixin.py:188} INFO - [2025-11-18T05:39:17.395+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/sodai/data_io.py
+[2025-11-18T05:39:17.403+0000] {logging_mixin.py:188} INFO - [2025-11-18T05:39:17.403+0000] {dagbag.py:329} INFO - File /opt/airflow/dags/sodai/data_io.py assumed to contain no DAGs. Skipping.
+[2025-11-18T05:39:17.404+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/sodai/data_io.py
+[2025-11-18T05:39:17.414+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/sodai/data_io.py took 0.026 seconds
+[2025-11-18T05:39:48.000+0000] {processor.py:161} INFO - Started process (PID=780) to work on /opt/airflow/dags/sodai/data_io.py
+[2025-11-18T05:39:48.001+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/sodai/data_io.py for tasks to queue
+[2025-11-18T05:39:48.005+0000] {logging_mixin.py:188} INFO - [2025-11-18T05:39:48.004+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/sodai/data_io.py
+[2025-11-18T05:39:48.026+0000] {logging_mixin.py:188} INFO - [2025-11-18T05:39:48.026+0000] {dagbag.py:329} INFO - File /opt/airflow/dags/sodai/data_io.py assumed to contain no DAGs. Skipping.
+[2025-11-18T05:39:48.026+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/sodai/data_io.py
+[2025-11-18T05:39:48.038+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/sodai/data_io.py took 0.043 seconds
+[2025-11-18T05:40:18.633+0000] {processor.py:161} INFO - Started process (PID=801) to work on /opt/airflow/dags/sodai/data_io.py
+[2025-11-18T05:40:18.634+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/sodai/data_io.py for tasks to queue
+[2025-11-18T05:40:18.635+0000] {logging_mixin.py:188} INFO - [2025-11-18T05:40:18.635+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/sodai/data_io.py
+[2025-11-18T05:40:18.667+0000] {logging_mixin.py:188} INFO - [2025-11-18T05:40:18.666+0000] {dagbag.py:329} INFO - File /opt/airflow/dags/sodai/data_io.py assumed to contain no DAGs. Skipping.
+[2025-11-18T05:40:18.667+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/sodai/data_io.py
+[2025-11-18T05:40:18.678+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/sodai/data_io.py took 0.050 seconds
+[2025-11-18T05:40:49.365+0000] {processor.py:161} INFO - Started process (PID=822) to work on /opt/airflow/dags/sodai/data_io.py
+[2025-11-18T05:40:49.367+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/sodai/data_io.py for tasks to queue
+[2025-11-18T05:40:49.368+0000] {logging_mixin.py:188} INFO - [2025-11-18T05:40:49.368+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/sodai/data_io.py
+[2025-11-18T05:40:49.383+0000] {logging_mixin.py:188} INFO - [2025-11-18T05:40:49.383+0000] {dagbag.py:329} INFO - File /opt/airflow/dags/sodai/data_io.py assumed to contain no DAGs. Skipping.
+[2025-11-18T05:40:49.383+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/sodai/data_io.py
+[2025-11-18T05:40:49.393+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/sodai/data_io.py took 0.033 seconds
+[2025-11-18T05:41:20.096+0000] {processor.py:161} INFO - Started process (PID=843) to work on /opt/airflow/dags/sodai/data_io.py
+[2025-11-18T05:41:20.097+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/sodai/data_io.py for tasks to queue
+[2025-11-18T05:41:20.098+0000] {logging_mixin.py:188} INFO - [2025-11-18T05:41:20.098+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/sodai/data_io.py
+[2025-11-18T05:41:20.114+0000] {logging_mixin.py:188} INFO - [2025-11-18T05:41:20.114+0000] {dagbag.py:329} INFO - File /opt/airflow/dags/sodai/data_io.py assumed to contain no DAGs. Skipping.
+[2025-11-18T05:41:20.114+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/sodai/data_io.py
+[2025-11-18T05:41:20.125+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/sodai/data_io.py took 0.033 seconds
+[2025-11-18T05:41:50.207+0000] {processor.py:161} INFO - Started process (PID=864) to work on /opt/airflow/dags/sodai/data_io.py
+[2025-11-18T05:41:50.208+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/sodai/data_io.py for tasks to queue
+[2025-11-18T05:41:50.208+0000] {logging_mixin.py:188} INFO - [2025-11-18T05:41:50.208+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/sodai/data_io.py
+[2025-11-18T05:41:50.222+0000] {logging_mixin.py:188} INFO - [2025-11-18T05:41:50.221+0000] {dagbag.py:329} INFO - File /opt/airflow/dags/sodai/data_io.py assumed to contain no DAGs. Skipping.
+[2025-11-18T05:41:50.222+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/sodai/data_io.py
+[2025-11-18T05:41:50.232+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/sodai/data_io.py took 0.031 seconds
