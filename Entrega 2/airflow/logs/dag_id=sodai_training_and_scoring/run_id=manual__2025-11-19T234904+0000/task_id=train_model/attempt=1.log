@@ -1,0 +1,123 @@
+[2025-11-19T23:49:14.093+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-11-19T23:49:14.117+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: sodai_training_and_scoring.train_model manual__2025-11-19T23:49:04+00:00 [queued]>
+[2025-11-19T23:49:14.123+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: sodai_training_and_scoring.train_model manual__2025-11-19T23:49:04+00:00 [queued]>
+[2025-11-19T23:49:14.123+0000] {taskinstance.py:2303} INFO - Starting attempt 1 of 2
+[2025-11-19T23:49:14.133+0000] {taskinstance.py:2327} INFO - Executing <Task(PythonOperator): train_model> on 2025-11-19 23:49:04+00:00
+[2025-11-19T23:49:14.138+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'sodai_training_and_scoring', 'train_model', 'manual__2025-11-19T23:49:04+00:00', '--job-id', '72', '--raw', '--subdir', 'DAGS_FOLDER/sodai_pipeline_dag.py', '--cfg-path', '/tmp/tmpydo1klsb']
+[2025-11-19T23:49:14.140+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=2998) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-11-19T23:49:14.140+0000] {standard_task_runner.py:91} INFO - Job 72: Subtask train_model
+[2025-11-19T23:49:14.141+0000] {standard_task_runner.py:63} INFO - Started process 2999 to run task
+[2025-11-19T23:49:14.180+0000] {task_command.py:426} INFO - Running <TaskInstance: sodai_training_and_scoring.train_model manual__2025-11-19T23:49:04+00:00 [running]> on host 5e4f749644cd
+[2025-11-19T23:49:14.230+0000] {taskinstance.py:2644} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='data_team' AIRFLOW_CTX_DAG_ID='sodai_training_and_scoring' AIRFLOW_CTX_TASK_ID='train_model' AIRFLOW_CTX_EXECUTION_DATE='2025-11-19T23:49:04+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-11-19T23:49:04+00:00'
+[2025-11-19T23:49:14.231+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-11-19T23:49:15.376+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/mlflow/tracking/_tracking_service/utils.py:140 FutureWarning: Filesystem tracking backend (e.g., './mlruns') is deprecated. Please switch to a database backend (e.g., 'sqlite:///mlflow.db'). For feedback, see: https://github.com/mlflow/mlflow/issues/18534
+[2025-11-19T23:49:15.409+0000] {logging_mixin.py:188} INFO - mlflow tracking uri: file:///opt/***/artifacts/mlruns
+[2025-11-19T23:49:15.410+0000] {logging_mixin.py:188} INFO - mlflow experiment: sodai_classification_training
+[2025-11-19T23:49:15.554+0000] {logging_mixin.py:188} WARNING - /opt/***/dags/sodai/train.py:152 SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+[2025-11-19T23:49:15.560+0000] {logging_mixin.py:188} WARNING - /opt/***/dags/sodai/train.py:152 SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+[2025-11-19T23:49:15.566+0000] {logging_mixin.py:188} WARNING - /opt/***/dags/sodai/train.py:152 SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+[2025-11-19T23:49:15.576+0000] {logging_mixin.py:188} WARNING - /opt/***/dags/sodai/train.py:152 SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+[2025-11-19T23:49:15.581+0000] {logging_mixin.py:188} WARNING - /opt/***/dags/sodai/train.py:152 SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+[2025-11-19T23:49:15.588+0000] {logging_mixin.py:188} WARNING - /opt/***/dags/sodai/train.py:152 SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+[2025-11-19T23:49:15.637+0000] {logging_mixin.py:188} INFO - datos de entrenamiento: 163956 muestras
+[2025-11-19T23:49:15.637+0000] {logging_mixin.py:188} INFO - datos de prueba: 40989 muestras
+[2025-11-19T23:49:15.668+0000] {logging_mixin.py:188} WARNING - 2025/11/19 23:49:15 WARNING mlflow.utils.git_utils: Failed to import Git (the Git executable is probably not on your PATH), so Git SHA is not available. Error: Failed to initialize: Bad git executable.
+The git executable must be specified in one of the following ways:
+    - be included in your $PATH
+    - be set via $GIT_PYTHON_GIT_EXECUTABLE
+    - explicitly set via git.refresh(<full-path-to-git-executable>)
+
+All git commands will error until this is rectified.
+
+This initial message can be silenced or aggravated in the future by setting the
+$GIT_PYTHON_REFRESH environment variable. Use one of the following values:
+    - quiet|q|silence|s|silent|none|n|0: for no message or exception
+    - warn|w|warning|log|l|1: for a warning message (logging level CRITICAL, displayed by default)
+    - error|e|exception|raise|r|2: for a raised exception
+
+Example:
+    export GIT_PYTHON_REFRESH=quiet
+[2025-11-19T23:49:15.875+0000] {logging_mixin.py:188} INFO - 
+iniciando optimizacion de hiperparametros con optuna
+[2025-11-19T23:49:15.875+0000] {logging_mixin.py:188} INFO - optimizando hiperparametros con 10 trials
+[2025-11-19T23:49:15.877+0000] {logging_mixin.py:188} WARNING -   0%|          | 0/10 [00:00<?, ?it/s]
+[2025-11-19T23:49:24.809+0000] {logging_mixin.py:188} WARNING - Best trial: 0. Best value: 0.717842:   0%|          | 0/10 [00:08<?, ?it/s]
+[2025-11-19T23:49:24.810+0000] {logging_mixin.py:188} WARNING - Best trial: 0. Best value: 0.717842:  10%|#         | 1/10 [00:08<01:20,  8.93s/it]
+[2025-11-19T23:49:24.811+0000] {logging_mixin.py:188} WARNING - Best trial: 0. Best value: 0.717842:  10%|#         | 1/10 [00:08<01:20,  8.93s/it, 8.93/3600 seconds]
+[2025-11-19T23:49:28.111+0000] {logging_mixin.py:188} WARNING - Best trial: 0. Best value: 0.717842:  10%|#         | 1/10 [00:12<01:20,  8.93s/it, 8.93/3600 seconds]
+[2025-11-19T23:49:28.111+0000] {logging_mixin.py:188} WARNING - Best trial: 0. Best value: 0.717842:  20%|##        | 2/10 [00:12<00:44,  5.62s/it, 8.93/3600 seconds]
+[2025-11-19T23:49:28.112+0000] {logging_mixin.py:188} WARNING - Best trial: 0. Best value: 0.717842:  20%|##        | 2/10 [00:12<00:44,  5.62s/it, 12.23/3600 seconds]
+[2025-11-19T23:49:46.918+0000] {logging_mixin.py:188} WARNING - Best trial: 0. Best value: 0.717842:  20%|##        | 2/10 [00:31<00:44,  5.62s/it, 12.23/3600 seconds]
+[2025-11-19T23:49:46.918+0000] {logging_mixin.py:188} WARNING - Best trial: 0. Best value: 0.717842:  30%|###       | 3/10 [00:31<01:21, 11.64s/it, 12.23/3600 seconds]
+[2025-11-19T23:49:46.919+0000] {logging_mixin.py:188} WARNING - Best trial: 0. Best value: 0.717842:  30%|###       | 3/10 [00:31<01:21, 11.64s/it, 31.04/3600 seconds]
+[2025-11-19T23:49:52.945+0000] {logging_mixin.py:188} WARNING - Best trial: 0. Best value: 0.717842:  30%|###       | 3/10 [00:37<01:21, 11.64s/it, 31.04/3600 seconds]
+[2025-11-19T23:49:52.945+0000] {logging_mixin.py:188} WARNING - Best trial: 0. Best value: 0.717842:  40%|####      | 4/10 [00:37<00:56,  9.43s/it, 31.04/3600 seconds]
+[2025-11-19T23:49:52.946+0000] {logging_mixin.py:188} WARNING - Best trial: 0. Best value: 0.717842:  40%|####      | 4/10 [00:37<00:56,  9.43s/it, 37.07/3600 seconds]
+[2025-11-19T23:49:59.131+0000] {logging_mixin.py:188} WARNING - Best trial: 0. Best value: 0.717842:  40%|####      | 4/10 [00:43<00:56,  9.43s/it, 37.07/3600 seconds]
+[2025-11-19T23:49:59.132+0000] {logging_mixin.py:188} WARNING - Best trial: 0. Best value: 0.717842:  50%|#####     | 5/10 [00:43<00:41,  8.26s/it, 37.07/3600 seconds]
+[2025-11-19T23:49:59.132+0000] {logging_mixin.py:188} WARNING - Best trial: 0. Best value: 0.717842:  50%|#####     | 5/10 [00:43<00:41,  8.26s/it, 43.25/3600 seconds]
+[2025-11-19T23:50:03.316+0000] {logging_mixin.py:188} WARNING - Best trial: 0. Best value: 0.717842:  50%|#####     | 5/10 [00:47<00:41,  8.26s/it, 43.25/3600 seconds]
+[2025-11-19T23:50:03.317+0000] {logging_mixin.py:188} WARNING - Best trial: 0. Best value: 0.717842:  60%|######    | 6/10 [00:47<00:27,  6.87s/it, 43.25/3600 seconds]
+[2025-11-19T23:50:03.317+0000] {logging_mixin.py:188} WARNING - Best trial: 0. Best value: 0.717842:  60%|######    | 6/10 [00:47<00:27,  6.87s/it, 47.44/3600 seconds]
+[2025-11-19T23:50:11.494+0000] {logging_mixin.py:188} WARNING - Best trial: 0. Best value: 0.717842:  60%|######    | 6/10 [00:55<00:27,  6.87s/it, 47.44/3600 seconds]
+[2025-11-19T23:50:11.495+0000] {logging_mixin.py:188} WARNING - Best trial: 0. Best value: 0.717842:  70%|#######   | 7/10 [00:55<00:21,  7.30s/it, 47.44/3600 seconds]
+[2025-11-19T23:50:11.496+0000] {logging_mixin.py:188} WARNING - Best trial: 0. Best value: 0.717842:  70%|#######   | 7/10 [00:55<00:21,  7.30s/it, 55.62/3600 seconds]
+[2025-11-19T23:50:21.102+0000] {logging_mixin.py:188} WARNING - Best trial: 0. Best value: 0.717842:  70%|#######   | 7/10 [01:05<00:21,  7.30s/it, 55.62/3600 seconds]
+[2025-11-19T23:50:21.103+0000] {logging_mixin.py:188} WARNING - Best trial: 0. Best value: 0.717842:  80%|########  | 8/10 [01:05<00:16,  8.03s/it, 55.62/3600 seconds]
+[2025-11-19T23:50:21.103+0000] {logging_mixin.py:188} WARNING - Best trial: 0. Best value: 0.717842:  80%|########  | 8/10 [01:05<00:16,  8.03s/it, 65.22/3600 seconds]
+[2025-11-19T23:50:25.395+0000] {logging_mixin.py:188} WARNING - Best trial: 0. Best value: 0.717842:  80%|########  | 8/10 [01:09<00:16,  8.03s/it, 65.22/3600 seconds]
+[2025-11-19T23:50:25.395+0000] {logging_mixin.py:188} WARNING - Best trial: 0. Best value: 0.717842:  90%|######### | 9/10 [01:09<00:06,  6.86s/it, 65.22/3600 seconds]
+[2025-11-19T23:50:25.396+0000] {logging_mixin.py:188} WARNING - Best trial: 0. Best value: 0.717842:  90%|######### | 9/10 [01:09<00:06,  6.86s/it, 69.52/3600 seconds]
+[2025-11-19T23:50:30.904+0000] {logging_mixin.py:188} WARNING - Best trial: 0. Best value: 0.717842:  90%|######### | 9/10 [01:15<00:06,  6.86s/it, 69.52/3600 seconds]
+[2025-11-19T23:50:30.905+0000] {logging_mixin.py:188} WARNING - Best trial: 0. Best value: 0.717842: 100%|##########| 10/10 [01:15<00:00,  6.45s/it, 69.52/3600 seconds]
+[2025-11-19T23:50:30.906+0000] {logging_mixin.py:188} WARNING - Best trial: 0. Best value: 0.717842: 100%|##########| 10/10 [01:15<00:00,  6.45s/it, 75.03/3600 seconds]
+[2025-11-19T23:50:30.906+0000] {logging_mixin.py:188} WARNING - Best trial: 0. Best value: 0.717842: 100%|##########| 10/10 [01:15<00:00,  7.50s/it, 75.03/3600 seconds]
+[2025-11-19T23:50:30.906+0000] {logging_mixin.py:188} INFO - mejor f1-score encontrado: 0.7178
+[2025-11-19T23:50:30.907+0000] {logging_mixin.py:188} INFO - mejores parametros: {'n_estimators': 225, 'max_depth': 9, 'learning_rate': 0.02479011688548957, 'min_child_weight': 6, 'gamma': 0.0066202504651931005, 'subsample': 0.627538267139705, 'colsample_bytree': 0.795632015567967, 'colsample_bylevel': 0.7444112213208227, 'reg_alpha': 4.630128365934021, 'reg_lambda': 2.0597889654860357, 'scale_pos_weight': 2.5589473044776128}
+[2025-11-19T23:50:30.986+0000] {logging_mixin.py:188} INFO - 
+entrenando modelo final con mejores parametros
+[2025-11-19T23:50:35.025+0000] {logging_mixin.py:188} INFO - 
+metricas en test set:
+[2025-11-19T23:50:35.026+0000] {logging_mixin.py:188} INFO -   accuracy: 0.7115
+[2025-11-19T23:50:35.026+0000] {logging_mixin.py:188} INFO -   precision: 0.6052
+[2025-11-19T23:50:35.026+0000] {logging_mixin.py:188} INFO -   recall: 0.8855
+[2025-11-19T23:50:35.027+0000] {logging_mixin.py:188} INFO -   f1-score: 0.7190
+[2025-11-19T23:50:35.027+0000] {logging_mixin.py:188} INFO -   roc-auc: 0.8438
+[2025-11-19T23:50:36.368+0000] {logging_mixin.py:188} WARNING - 2025/11/19 23:50:36 WARNING mlflow.models.model: `artifact_path` is deprecated. Please use `name` instead.
+[2025-11-19T23:50:44.995+0000] {logging_mixin.py:188} WARNING - 2025/11/19 23:50:44 WARNING mlflow.models.model: Model logged without a signature and input example. Please set `input_example` parameter when logging the model to auto infer the model signature.
+[2025-11-19T23:50:45.671+0000] {logging_mixin.py:188} INFO - 
+categorias conocidas guardadas para 10 columnas
+[2025-11-19T23:50:45.693+0000] {logging_mixin.py:188} INFO - 
+modelo guardado en: /opt/***/artifacts/models/sodai_model.joblib
+[2025-11-19T23:50:45.694+0000] {logging_mixin.py:188} INFO - metricas guardadas en: /opt/***/artifacts/metrics/sodai_metrics.json
+[2025-11-19T23:50:45.694+0000] {logging_mixin.py:188} INFO - mlflow run id: 71e8e007960946538f16299d0c8e84b4
+[2025-11-19T23:50:45.722+0000] {python.py:237} INFO - Done. Returned value was: None
+[2025-11-19T23:50:45.723+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-11-19T23:50:45.729+0000] {taskinstance.py:1205} INFO - Marking task as SUCCESS. dag_id=sodai_training_and_scoring, task_id=train_model, execution_date=20251119T234904, start_date=20251119T234914, end_date=20251119T235045
+[2025-11-19T23:50:45.759+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-11-19T23:50:45.774+0000] {taskinstance.py:3482} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-11-19T23:50:45.776+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

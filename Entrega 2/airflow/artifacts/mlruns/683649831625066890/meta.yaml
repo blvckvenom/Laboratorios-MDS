@@ -1,0 +1,6 @@
+artifact_location: file:///opt/airflow/artifacts/mlruns/683649831625066890
+creation_time: 1763584902736
+experiment_id: '683649831625066890'
+last_update_time: 1763584902736
+lifecycle_stage: active
+name: sodai_classification_training

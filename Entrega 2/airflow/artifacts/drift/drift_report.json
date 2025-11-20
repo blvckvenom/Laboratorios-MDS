@@ -1,130 +1,283 @@
 {
-  "timestamp": "2025-11-18T22:16:00.718902",
-  "n_rows": 4856,
-  "n_columns": 18,
+  "timestamp": "2025-11-19T23:49:12.938879",
+  "dataset_actual": "df_modelado.parquet",
+  "n_rows_actual": 204945,
+  "n_columns": 49,
   "numeric_columns": [
     "customer_id",
     "product_id",
-    "order_id",
     "items",
-    "region_id",
-    "zone_id",
-    "Y",
+    "compra_siguiente_semana",
     "X",
+    "Y",
     "num_deliver_per_week",
-    "num_visit_per_week",
-    "size"
+    "size",
+    "total_ordenes_global",
+    "productos_unicos_global",
+    "items_totales_global",
+    "items_promedio_global",
+    "dias_desde_primera_compra",
+    "dias_desde_ultima_compra",
+    "frecuencia_compra_diaria",
+    "diversidad_productos",
+    "total_ventas_global",
+    "clientes_unicos_global",
+    "items_vendidos_global",
+    "popularidad_rank",
+    "veces_comprado_global",
+    "items_promedio_producto",
+    "compro_este_producto_antes",
+    "dias_desde_ultima_compra_producto",
+    "dia_semana",
+    "mes",
+    "trimestre",
+    "semana_del_año",
+    "es_fin_semana",
+    "es_lunes_jueves",
+    "es_temporada_alta",
+    "es_temporada_baja",
+    "mes_sin",
+    "mes_cos",
+    "dia_semana_sin",
+    "dia_semana_cos",
+    "size_log1p",
+    "segment_ordinal",
+    "distancia_al_centro"
   ],
-  "stats": {
+  "columnas_drift": {
     "customer_id": {
-      "count": 4856.0,
-      "mean": 185784.47508237232,
-      "std": 46757.66437431943,
-      "min": 25734.0,
-      "25%": 167316.0,
-      "50%": 203058.0,
-      "75%": 212220.0,
-      "max": 244680.0
+      "actual_mean": 190951.0188099246,
+      "actual_std": 64166.04592540595,
+      "actual_min": 25734.0,
+      "actual_max": 2061063.0
     },
     "product_id": {
-      "count": 4856.0,
-      "mean": 38587.8352553542,
-      "std": 23157.399127950568,
-      "min": 60.0,
-      "25%": 11262.0,
-      "50%": 48574.0,
-      "75%": 61364.0,
-      "max": 62074.0
-    },
-    "order_id": {
-      "count": 4856.0,
-      "mean": 403382.13488467876,
-      "std": 7440.297898765822,
-      "min": 390549.0,
-      "25%": 396159.0,
-      "50%": 403058.0,
-      "75%": 408527.0,
-      "max": 415567.0
+      "actual_mean": 31562.566005513676,
+      "actual_std": 23921.89115938903,
+      "actual_min": 60.0,
+      "actual_max": 63540.0
     },
     "items": {
-      "count": 4856.0,
-      "mean": 3.8255079626578796,
-      "std": 8.398569677160095,
-      "min": -33.0,
-      "25%": 1.0,
-      "50%": 1.6666666666666667,
-      "75%": 3.6666666666666665,
-      "max": 233.66666666666663
+      "actual_mean": 5.615466263306415,
+      "actual_std": 16.171228646861373,
+      "actual_min": 0.3333333333333333,
+      "actual_max": 1134.0
     },
-    "region_id": {
-      "count": 4856.0,
-      "mean": 80.0,
-      "std": 0.0,
-      "min": 80.0,
-      "25%": 80.0,
-      "50%": 80.0,
-      "75%": 80.0,
-      "max": 80.0
-    },
-    "zone_id": {
-      "count": 4856.0,
-      "mean": 5148.0,
-      "std": 0.0,
-      "min": 5148.0,
-      "25%": 5148.0,
-      "50%": 5148.0,
-      "75%": 5148.0,
-      "max": 5148.0
-    },
-    "Y": {
-      "count": 4856.0,
-      "mean": -46.63057641640605,
-      "std": 1.9719058499916398,
-      "min": -107.879946,
-      "25%": -46.5748825,
-      "50%": -46.5518309,
-      "75%": -46.503419449999996,
-      "max": -46.344948
+    "compra_siguiente_semana": {
+      "actual_mean": 0.4179609163434092,
+      "actual_std": 0.4932248734177573,
+      "actual_min": 0.0,
+      "actual_max": 1.0
     },
     "X": {
-      "count": 4856.0,
-      "mean": -107.77533103467003,
-      "std": 1.983409088188659,
-      "min": -108.55124,
-      "25%": -107.924586,
-      "50%": -107.890364,
-      "75%": -107.856664,
-      "max": -46.59852
+      "actual_mean": -107.78175647570089,
+      "actual_std": 2.0213541352789908,
+      "actual_min": -108.62092,
+      "actual_max": -46.4427848
+    },
+    "Y": {
+      "actual_mean": -46.641097178736835,
+      "actual_std": 2.0200866181251667,
+      "actual_min": -109.0025078,
+      "actual_max": -46.3085984
     },
     "num_deliver_per_week": {
-      "count": 4856.0,
-      "mean": 3.1569192751235584,
-      "std": 0.37982800388422555,
-      "min": 2.0,
-      "25%": 3.0,
-      "50%": 3.0,
-      "75%": 3.0,
-      "max": 5.0
-    },
-    "num_visit_per_week": {
-      "count": 4856.0,
-      "mean": 1.0,
-      "std": 0.0,
-      "min": 1.0,
-      "25%": 1.0,
-      "50%": 1.0,
-      "75%": 1.0,
-      "max": 1.0
+      "actual_mean": 3.1666154334089636,
+      "actual_std": 0.3948096903579685,
+      "actual_min": 2.0,
+      "actual_max": 6.0
     },
     "size": {
-      "count": 4856.0,
-      "mean": 0.6993595551894563,
-      "std": 1.1284125455519995,
-      "min": 0.25,
-      "25%": 0.25,
-      "50%": 0.66,
-      "75%": 1.0,
-      "max": 20.0
+      "actual_mean": 0.6607746956500526,
+      "actual_std": 1.0314916376509575,
+      "actual_min": 0.25,
+      "actual_max": 20.0
+    },
+    "total_ordenes_global": {
+      "actual_mean": 325.5249261997121,
+      "actual_std": 270.1935026617832,
+      "actual_min": 1.0,
+      "actual_max": 1504.0
+    },
+    "productos_unicos_global": {
+      "actual_mean": 31.504066944790065,
+      "actual_std": 16.9068261496755,
+      "actual_min": 1.0,
+      "actual_max": 84.0
+    },
+    "items_totales_global": {
+      "actual_mean": 2026.6439493522655,
+      "actual_std": 4050.2000536150217,
+      "actual_min": 1.0,
+      "actual_max": 41445.666666666664
+    },
+    "items_promedio_global": {
+      "actual_mean": 4.527664393713705,
+      "actual_std": 5.715008810136729,
+      "actual_min": 1.0,
+      "actual_max": 71.32478632478633
+    },
+    "dias_desde_primera_compra": {
+      "actual_mean": 176.94031081509672,
+      "actual_std": 112.08891506768818,
+      "actual_min": 0.0,
+      "actual_max": 365.0
+    },
+    "dias_desde_ultima_compra": {
+      "actual_mean": 0.0,
+      "actual_std": 0.0,
+      "actual_min": 0.0,
+      "actual_max": 0.0
+    },
+    "frecuencia_compra_diaria": {
+      "actual_mean": 10.087617562517421,
+      "actual_std": 50.772317032306056,
+      "actual_min": 0.016778523489932886,
+      "actual_max": 1504.0
+    },
+    "diversidad_productos": {
+      "actual_mean": 0.12962805396293978,
+      "actual_std": 0.07240861695905762,
+      "actual_min": 0.0273972602739726,
+      "actual_max": 0.875
+    },
+    "total_ventas_global": {
+      "actual_mean": 14023.228295396326,
+      "actual_std": 11763.902825802914,
+      "actual_min": 1.0,
+      "actual_max": 36365.0
+    },
+    "clientes_unicos_global": {
+      "actual_mean": 886.5243504354827,
+      "actual_std": 364.1995096805531,
+      "actual_min": 1.0,
+      "actual_max": 1327.0
+    },
+    "items_vendidos_global": {
+      "actual_mean": 74202.8460012849,
+      "actual_std": 76854.90908296939,
+      "actual_min": 1.6666666666666667,
+      "actual_max": 243259.0
+    },
+    "popularidad_rank": {
+      "actual_mean": 13.023001293029838,
+      "actual_std": 15.487409162014368,
+      "actual_min": 1.0,
+      "actual_max": 112.0
+    },
+    "veces_comprado_global": {
+      "actual_mean": 23.405977213398717,
+      "actual_std": 21.77641511900454,
+      "actual_min": 1.0,
+      "actual_max": 222.0
+    },
+    "items_promedio_producto": {
+      "actual_mean": 4.388423156888021,
+      "actual_std": 8.842616902944384,
+      "actual_min": 0.3333333333333333,
+      "actual_max": 667.0
+    },
+    "compro_este_producto_antes": {
+      "actual_mean": 1.0,
+      "actual_std": 0.0,
+      "actual_min": 1.0,
+      "actual_max": 1.0
+    },
+    "dias_desde_ultima_compra_producto": {
+      "actual_mean": 0.0,
+      "actual_std": 0.0,
+      "actual_min": 0.0,
+      "actual_max": 0.0
+    },
+    "dia_semana": {
+      "actual_mean": 2.358886530532582,
+      "actual_std": 1.622750816929416,
+      "actual_min": 0.0,
+      "actual_max": 6.0
+    },
+    "mes": {
+      "actual_mean": 6.809919734562931,
+      "actual_std": 3.6468924448296316,
+      "actual_min": 1.0,
+      "actual_max": 12.0
+    },
+    "trimestre": {
+      "actual_mean": 2.592110078313694,
+      "actual_std": 1.1710538063279312,
+      "actual_min": 1.0,
+      "actual_max": 4.0
+    },
+    "semana_del_año": {
+      "actual_mean": 27.83770767766962,
+      "actual_std": 15.985464580388697,
+      "actual_min": 1.0,
+      "actual_max": 52.0
+    },
+    "es_fin_semana": {
+      "actual_mean": 0.09082924687111177,
+      "actual_std": 0.287366834759749,
+      "actual_min": 0.0,
+      "actual_max": 1.0
+    },
+    "es_lunes_jueves": {
+      "actual_mean": 0.37987752811729975,
+      "actual_std": 0.4853573335055531,
+      "actual_min": 0.0,
+      "actual_max": 1.0
+    },
+    "es_temporada_alta": {
+      "actual_mean": 0.2125594671741199,
+      "actual_std": 0.40911948962329997,
+      "actual_min": 0.0,
+      "actual_max": 1.0
+    },
+    "es_temporada_baja": {
+      "actual_mean": 0.19241259850203712,
+      "actual_std": 0.3941963326146051,
+      "actual_min": 0.0,
+      "actual_max": 1.0
+    },
+    "mes_sin": {
+      "actual_mean": -0.027883330851216855,
+      "actual_std": 0.7061976071694132,
+      "actual_min": -1.0,
+      "actual_max": 1.0
+    },
+    "mes_cos": {
+      "actual_mean": 0.11306218153143689,
+      "actual_std": 0.6983761277498235,
+      "actual_min": -1.0,
+      "actual_max": 1.0
+    },
+    "dia_semana_sin": {
+      "actual_mean": 0.24710375066429327,
+      "actual_std": 0.6030106418251069,
+      "actual_min": -0.9749279121818236,
+      "actual_max": 0.9749279121818236
+    },
+    "dia_semana_cos": {
+      "actual_mean": -0.1096142963037399,
+      "actual_std": 0.7505378945245171,
+      "actual_min": -0.9009688679024191,
+      "actual_max": 1.0
+    },
+    "size_log1p": {
+      "actual_mean": 0.46090131564717984,
+      "actual_std": 0.25085440444379764,
+      "actual_min": 0.22314355131420976,
+      "actual_max": 3.044522437723423
+    },
+    "segment_ordinal": {
+      "actual_mean": 1.5013101075898412,
+      "actual_std": 0.969688294845572,
+      "actual_min": 0.0,
+      "actual_max": 3.0
+    },
+    "distancia_al_centro": {
+      "actual_mean": 0.3617764309537371,
+      "actual_std": 2.8347380232254413,
+      "actual_min": 0.02896885082455946,
+      "actual_max": 87.47236695612067
     }
   }
 }

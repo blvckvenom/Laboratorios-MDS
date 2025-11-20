@@ -1,0 +1,14 @@
+artifact_uri: file:///opt/airflow/artifacts/mlruns/683649831625066890/71e8e007960946538f16299d0c8e84b4/artifacts
+end_time: 1763596245694
+entry_point_name: ''
+experiment_id: '683649831625066890'
+lifecycle_stage: active
+run_id: 71e8e007960946538f16299d0c8e84b4
+run_name: mercurial-stag-490
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1763596155674
+status: 3
+tags: []
+user_id: airflow

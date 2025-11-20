@@ -2,5 +2,12 @@ apache-airflow==2.9.0
 pandas
 pyarrow
 scikit-learn
+xgboost
 joblib
 scipy
+mlflow
+optuna
+shap
+numpy
+matplotlib
+seaborn

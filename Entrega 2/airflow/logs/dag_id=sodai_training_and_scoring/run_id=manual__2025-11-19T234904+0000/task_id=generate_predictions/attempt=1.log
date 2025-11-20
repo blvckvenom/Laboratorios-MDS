@@ -1,0 +1,74 @@
+[2025-11-19T23:50:49.233+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-11-19T23:50:49.256+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: sodai_training_and_scoring.generate_predictions manual__2025-11-19T23:49:04+00:00 [queued]>
+[2025-11-19T23:50:49.262+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: sodai_training_and_scoring.generate_predictions manual__2025-11-19T23:49:04+00:00 [queued]>
+[2025-11-19T23:50:49.263+0000] {taskinstance.py:2303} INFO - Starting attempt 1 of 2
+[2025-11-19T23:50:49.272+0000] {taskinstance.py:2327} INFO - Executing <Task(PythonOperator): generate_predictions> on 2025-11-19 23:49:04+00:00
+[2025-11-19T23:50:49.278+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=3160) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-11-19T23:50:49.279+0000] {standard_task_runner.py:63} INFO - Started process 3161 to run task
+[2025-11-19T23:50:49.279+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'sodai_training_and_scoring', 'generate_predictions', 'manual__2025-11-19T23:49:04+00:00', '--job-id', '74', '--raw', '--subdir', 'DAGS_FOLDER/sodai_pipeline_dag.py', '--cfg-path', '/tmp/tmpunipfwli']
+[2025-11-19T23:50:49.281+0000] {standard_task_runner.py:91} INFO - Job 74: Subtask generate_predictions
+[2025-11-19T23:50:49.330+0000] {task_command.py:426} INFO - Running <TaskInstance: sodai_training_and_scoring.generate_predictions manual__2025-11-19T23:49:04+00:00 [running]> on host 5e4f749644cd
+[2025-11-19T23:50:49.390+0000] {taskinstance.py:2644} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='data_team' AIRFLOW_CTX_DAG_ID='sodai_training_and_scoring' AIRFLOW_CTX_TASK_ID='generate_predictions' AIRFLOW_CTX_EXECUTION_DATE='2025-11-19T23:49:04+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-11-19T23:49:04+00:00'
+[2025-11-19T23:50:49.391+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-11-19T23:50:50.651+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-11-19T23:50:50.652+0000] {taskinstance.py:2890} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/xgboost/data.py", line 407, in pandas_feature_info
+    new_feature_types.append(_pandas_dtype_mapper[dtype.name])
+                             ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+KeyError: 'object'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/sodai_pipeline_dag.py", line 81, in _generate_predictions
+    predict.generar_predicciones()
+  File "/opt/airflow/dags/sodai/predict.py", line 50, in generar_predicciones
+    y_pred = model.predict(X)
+             ^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/xgboost/core.py", line 774, in inner_f
+    return func(**kwargs)
+           ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/xgboost/sklearn.py", line 1839, in predict
+    class_probs = super().predict(
+                  ^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/xgboost/core.py", line 774, in inner_f
+    return func(**kwargs)
+           ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/xgboost/sklearn.py", line 1443, in predict
+    predts = self.get_booster().inplace_predict(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/xgboost/core.py", line 774, in inner_f
+    return func(**kwargs)
+           ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/xgboost/core.py", line 2852, in inplace_predict
+    data, fns, _ = _transform_pandas_df(data, enable_categorical)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/xgboost/data.py", line 662, in _transform_pandas_df
+    feature_names, feature_types = pandas_feature_info(
+                                   ^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/xgboost/data.py", line 409, in pandas_feature_info
+    _invalid_dataframe_dtype(data)
+  File "/home/airflow/.local/lib/python3.12/site-packages/xgboost/data.py", line 372, in _invalid_dataframe_dtype
+    raise ValueError(msg)
+ValueError: DataFrame.dtypes for data must be int, float, bool or category. When categorical type is supplied, the experimental DMatrix parameter`enable_categorical` must be set to `True`.  Invalid columns:category: object, sub_category: object, package: object, size_categoria: category, segment: object, brand: object, customer_type: object
+[2025-11-19T23:50:50.663+0000] {taskinstance.py:1205} INFO - Marking task as UP_FOR_RETRY. dag_id=sodai_training_and_scoring, task_id=generate_predictions, execution_date=20251119T234904, start_date=20251119T235049, end_date=20251119T235050
+[2025-11-19T23:50:50.671+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 74 for task generate_predictions (DataFrame.dtypes for data must be int, float, bool or category. When categorical type is supplied, the experimental DMatrix parameter`enable_categorical` must be set to `True`.  Invalid columns:category: object, sub_category: object, package: object, size_categoria: category, segment: object, brand: object, customer_type: object; 3161)
+[2025-11-19T23:50:50.699+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2025-11-19T23:50:50.708+0000] {taskinstance.py:3482} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-11-19T23:50:50.710+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

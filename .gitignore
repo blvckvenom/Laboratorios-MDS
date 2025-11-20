@@ -1,0 +1,26 @@
+# claude-related files - no subir
+.claude/
+CLAUDE.md
+
+# python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+
+# jupyter
+.ipynb_checkpoints/
+
+# ide
+.vscode/
+.idea/
+
+# os
+.DS_Store
+Thumbs.db

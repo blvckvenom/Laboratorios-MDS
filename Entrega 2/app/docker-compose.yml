@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  # backend fastapi
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: sodai-backend
+    ports:
+      - "8000:8000"
+    environment:
+      - HOST=0.0.0.0
+      - PORT=8000
+    volumes:
+      - ./backend/artifacts:/app/artifacts:ro
+    healthcheck:
+      test: ["CMD", "python", "-c", "import requests; requests.get('http://localhost:8000/health')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+    restart: unless-stopped
+    networks:
+      - sodai-network
+
+  # frontend gradio
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: sodai-frontend
+    ports:
+      - "7860:7860"
+    environment:
+      - BACKEND_URL=http://backend:8000
+    depends_on:
+      backend:
+        condition: service_healthy
+    restart: unless-stopped
+    networks:
+      - sodai-network
+
+networks:
+  sodai-network:
+    driver: bridge

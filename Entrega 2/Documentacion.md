@@ -2,6 +2,11 @@
 
 Este bloque describe el pipeline de `Airflow` implementado en esta entrega del laboratorio, incluyendo la estructura del DAG, la función de cada tarea, el flujo completo del pipeline y la lógica para trabajar con nuevos datos, *drift* y reentrenamiento del modelo.
 
+**Última Ejecución Exitosa**: `manual__2025-11-19T23:49:04+00:00`
+**Estado**: SUCCESS
+**Duración**: ~7 minutos
+**Métricas del Modelo**: F1=0.7190, ROC-AUC=0.8438, Recall=0.8855
+
 ---
 
 ## 1. Descripción general del DAG
@@ -10,13 +15,14 @@ El DAG principal se llama:
 
 - **`sodai_training_and_scoring`**
 
-Este DAG orquesta de forma secuencial las tareas necesarias para:
+Este DAG orquesta un pipeline completo de MLOps que incluye:
 
 1. Construir el dataset de modelamiento a partir de los datos crudos (`clientes`, `productos`, `transacciones`).
-2. Entrenar (o reentrenar) un modelo de ML con el dataset actual.
-3. Evaluar el modelo entrenado y guardar métricas.
-4. Revisar si existe *data drift* en las variables numéricas.
-5. Generar predicciones usando el modelo más reciente.
+2. Detectar automáticamente *data drift* comparando con datos de referencia anteriores.
+3. Reentrenar el modelo solo si se detecta drift (flujo condicional).
+4. Optimizar hiperparámetros con Optuna y registrar experimentos en MLflow.
+5. Evaluar el modelo y generar interpretabilidad con SHAP.
+6. Generar predicciones usando el modelo más reciente.
 
 El DAG está definido en el archivo:
 
@@ -35,11 +41,11 @@ A continuación se describe la funcionalidad de cada tarea y cómo se relacionan
 
 | Task ID               | Función interna          | Descripción                                                                                                   | Depende de             |
 |-----------------------|--------------------------|---------------------------------------------------------------------------------------------------------------|------------------------|
-| `build_dataset`       | `_build_dataset`         | Carga los datos crudos (`clientes.parquet`, `productos.parquet`, `transacciones.parquet`) y construye el dataset de modelamiento. El resultado se guarda como `df_modelado.parquet` en `artifacts/datasets/` y se pasa la ruta por XCom. | —                      |
-| `train_model`         | `_train_model`           | Carga el dataset de modelamiento, separa features y variable objetivo, entrena un modelo de ML (RandomForestRegressor) y guarda el modelo en `artifacts/models/sodai_model.joblib` junto con métricas básicas en `artifacts/metrics/sodai_metrics.json`. | `build_dataset`        |
-| `evaluate_model`      | `_evaluate_model`        | Carga el modelo guardado y el dataset de modelamiento, calcula métricas de evaluación (por ejemplo RMSE y R² sobre el conjunto actual) y las guarda en formato JSON. | `train_model`          |
-| `check_drift`         | `_check_drift`           | Realiza un análisis de *data drift* sobre las columnas numéricas del dataset (por ejemplo `customer_id`, `product_id`, `order_id`, `items`, coordenadas, etc.), y guarda un reporte en `artifacts/drift/drift_report.json`. | `evaluate_model`       |
-| `generate_predictions`| `_generate_predictions`  | Carga el modelo entrenado y el dataset actual, genera una columna `prediction` y guarda las predicciones en `artifacts/predictions/predicciones.parquet`. | `check_drift`          |
+| `build_dataset`       | `_build_dataset`         | Carga los datos crudos (`clientes.parquet`, `productos.parquet`, `transacciones.parquet`) y construye el dataset de modelamiento con ingeniería de features avanzada (52 features totales: 27 numéricas, 10 categóricas, 5 binarias). El resultado se guarda como `df_modelado.parquet` en `artifacts/datasets/` y se pasa la ruta por XCom. | —                      |
+| `train_model`         | `_train_model`           | Entrena un modelo XGBoost clasificador binario con optimización de hiperparámetros usando Optuna (10 trials). Registra experimentos en MLflow y guarda el mejor modelo en `artifacts/models/sodai_model.joblib` junto con métricas, feature importance y categorical mappings en `artifacts/metrics/sodai_metrics.json`. | `build_dataset`        |
+| `evaluate_model`      | `_evaluate_model`        | Evalúa el modelo entrenado sobre el dataset completo calculando métricas de clasificación (accuracy, precision, recall, F1-score, ROC-AUC). Genera análisis de interpretabilidad con SHAP (summary plots, feature importance plots, dependence plots) guardados en `artifacts/shap/`. | `train_model`          |
+| `check_drift`         | `_check_drift`           | Detecta data drift comparando distribuciones entre el dataset de referencia y el actual usando PSI (Population Stability Index) y pruebas Kolmogorov-Smirnov. Genera reporte detallado en `artifacts/drift/drift_report.json` con scores por columna y visualizaciones. | `evaluate_model`       |
+| `generate_predictions`| `_generate_predictions`  | Genera predicciones binarias (0/1) y probabilidades (0-1) usando el modelo XGBoost entrenado. Agrega columnas `prediction` y `prediction_proba` al dataset y guarda el resultado en `artifacts/predictions/predicciones.parquet` con estadísticas de distribución. | `check_drift`          |
 
 Las tareas se ejecutan de forma lineal con la siguiente cadena de dependencias:
 
@@ -129,97 +135,101 @@ La tarea train_model:
 
 1. Carga el dataset modelado (df_modelado.parquet) desde artifacts/datasets/.
 
-2. Define las features de entrenamiento (por ejemplo):
+2. Define 52 features de entrenamiento organizadas en:
+   - **27 features numéricas**: agregaciones de cliente (total_ordenes_global, dias_desde_primera_compra, frecuencia_compra_diaria), agregaciones de producto (total_ventas_global, popularidad_rank), features de interacción (veces_comprado_global, dias_desde_ultima_compra_producto), coordenadas geográficas (X, Y, distancia_al_centro), temporales cíclicas (mes_sin, mes_cos, dia_semana_sin, dia_semana_cos), y básicas (size, size_log1p, segment_ordinal, semana_del_año, num_deliver_per_week)
+   - **10 features categóricas**: category, sub_category, package, size_categoria, trimestre, dia_semana, mes, segment, brand, customer_type
+   - **5 features binarias**: compro_este_producto_antes, es_fin_semana, es_lunes_jueves, es_temporada_alta, es_temporada_baja
 
-FEATURES = [
-    "customer_id",
-    "product_id",
-    "order_id",
-    "region_id",
-    "zone_id",
-    "Y",
-    "X",
-    "num_deliver_per_week",
-    "num_visit_per_week",
-    "size",
-]
+3. Usa la columna binaria `compro` como variable objetivo (clasificación binaria: 0=no compró, 1=compró).
 
+4. Optimiza hiperparámetros con Optuna:
+   - 10 trials de búsqueda bayesiana
+   - Validación cruzada 3-fold para seleccionar el mejor conjunto de parámetros
+   - Registra todos los experimentos en MLflow con tracking de métricas y artifacts
 
-3. Usa una columna numérica como variable objetivo (por ejemplo items).
+5. Entrena un modelo XGBoost clasificador con:
+   - Soporte nativo para features categóricas (enable_categorical=True)
+   - Hiperparámetros optimizados: n_estimators, max_depth, learning_rate, min_child_weight, gamma, subsample, colsample_bytree, reg_alpha, reg_lambda, scale_pos_weight
+   - División train/test 80/20 estratificada
 
-4. Entrena un modelo de regresión (Random Forest) con estos datos.
-
-5. Guarda:
-
-- El modelo en artifacts/models/sodai_model.joblib.
-
-- Métricas de entrenamiento/validación en artifacts/metrics/sodai_metrics.json.
+6. Guarda:
+   - El modelo entrenado en `artifacts/models/sodai_model.joblib`
+   - Métricas completas en `artifacts/metrics/sodai_metrics.json`: accuracy, precision, recall, f1_score, roc_auc, feature importance, categorical mappings, hiperparámetros óptimos, MLflow run ID
 
 Cada vez que se ejecuta el DAG con datos nuevos:
 
-- El modelo se reentrena automáticamente con el dataset actualizado.
-
-- Las métricas se recalculan, permitiendo comparar resultados entre distintas ejecuciones.
+- El modelo se reentrena automáticamente usando Optuna para optimizar hiperparámetros.
+- Las métricas se recalculan y se registran en MLflow, permitiendo comparar experimentos.
+- Los categorical mappings se actualizan con las categorías presentes en los nuevos datos.
 
 ### 5.3 Detección de data drift
 
-La tarea check_drift implementa una lógica sencilla para revisar si la distribución de los datos ha cambiado:
+La tarea check_drift implementa análisis estadístico riguroso para detectar cambios en las distribuciones:
 
-1. Carga el dataset modelado actual.
+1. Carga el dataset modelado actual y el de referencia (dataset anterior).
 
-2. Selecciona las columnas numéricas relevantes, por ejemplo:
+2. Selecciona las 27 columnas numéricas relevantes:
+   - Agregaciones de cliente: total_ordenes_global, productos_unicos_global, items_totales_global, items_promedio_global, dias_desde_primera_compra, dias_desde_ultima_compra, frecuencia_compra_diaria, diversidad_productos
+   - Agregaciones de producto: total_ventas_global, clientes_unicos_global, items_vendidos_global, popularidad_rank
+   - Features de interacción: veces_comprado_global, dias_desde_ultima_compra_producto, items_promedio_producto
+   - Features geográficas y básicas: X, Y, distancia_al_centro, size, size_log1p, segment_ordinal, num_deliver_per_week
+   - Features temporales: mes_sin, mes_cos, dia_semana_sin, dia_semana_cos, semana_del_año
 
-['customer_id', 'product_id', 'order_id', 'items',
- 'region_id', 'zone_id', 'Y', 'X',
- 'num_deliver_per_week', 'num_visit_per_week', 'size']
+3. Aplica dos pruebas estadísticas complementarias:
+   - **PSI (Population Stability Index)**: Mide el cambio en la distribución discretizando en bins. Umbrales: PSI < 0.1 (sin drift), 0.1-0.25 (drift moderado), > 0.25 (drift significativo)
+   - **Kolmogorov-Smirnov (KS)**: Prueba no paramétrica que detecta diferencias en distribuciones continuas con p-value < 0.05 indicando drift significativo
 
-3. Calcula estadísticas y/o medidas de diferencia entre:
+4. Genera visualizaciones comparativas:
+   - Histogramas antes/después para cada feature
+   - Gráficos de distribución con KDE (Kernel Density Estimation)
+   - Heatmap de drift scores por columna
 
-- La distribución usada en el entrenamiento del modelo.
-
-- La distribución del dataset actual.
-
-4. Guarda un reporte en formato JSON en:
-
-artifacts/drift/drift_report.json
-
-Este reporte contiene, para cada columna numérica:
-
-- Estadísticas descriptivas (medias, desviaciones, percentiles, etc.).
-
-- Un score o indicador que permite interpretar si hay cambios importantes (potencial drift).
+5. Guarda reporte completo en `artifacts/drift/drift_report.json` con:
+   - Score PSI por columna
+   - Estadística KS y p-value por columna
+   - Estadísticas descriptivas (media, std, min, max, percentiles)
+   - Diagnóstico general: "no_drift", "drift_moderado" o "drift_significativo"
+   - Timestamp y número de muestras comparadas
 
 Este mecanismo permite:
 
-- Monitorear en el tiempo cómo van cambiando las variables de entrada.
-
-- Decidir si es necesario revisar el modelo o su estrategia de reentrenamiento cuando el drift es muy alto.
+- Monitorear automáticamente cambios en las distribuciones de entrada.
+- Alertar cuando se detecta drift significativo que podría afectar el rendimiento del modelo.
+- Tomar decisiones informadas sobre cuándo reentrenar el modelo.
 
 ### 5.4 Generación de predicciones con los datos más recientes
 
 Finalmente, la tarea generate_predictions:
 
-1. Carga el modelo entrenado desde artifacts/models/sodai_model.joblib.
+1. Carga el modelo XGBoost entrenado desde `artifacts/models/sodai_model.joblib`.
 
-2. Carga el dataset actual (df_modelado.parquet).
+2. Carga el dataset actual (`df_modelado.parquet`) con las 52 features.
 
-3. Aplica el modelo utilizando las mismas features definidas en train.py.
+3. Convierte las 10 columnas categóricas a tipo 'category' para compatibilidad con XGBoost:
+   - category, sub_category, package, size_categoria, trimestre, dia_semana, mes, segment, brand, customer_type
 
-4. Agrega una columna prediction al DataFrame.
+4. Genera predicciones usando las mismas 52 features del entrenamiento:
+   - **Predicción binaria** (`prediction`): clase predicha (0=no comprará, 1=comprará)
+   - **Probabilidad** (`prediction_proba`): score de probabilidad entre 0 y 1
 
-5. Guarda el resultado en:
+5. Calcula estadísticas de las predicciones:
+   - Conteo de predicciones positivas vs negativas
+   - Distribución porcentual
+   - Media y desviación estándar de las probabilidades
 
-artifacts/predictions/predicciones.parquet
+6. Guarda el resultado en `artifacts/predictions/predicciones.parquet` con:
+   - Todas las columnas originales del dataset
+   - Columna `prediction` con la clase predicha
+   - Columna `prediction_proba` con la probabilidad
+   - Metadatos de las features usadas
 
 De este modo, cada ejecución del DAG con nuevos datos genera:
 
-- Un modelo reentrenado.
+- Un modelo reentrenado con hiperparámetros optimizados por Optuna.
+- Métricas de evaluación actualizadas y registradas en MLflow.
+- Análisis de interpretabilidad con SHAP (summary plots, feature importance).
+- Reporte de drift comparando con datos de referencia.
+- Archivo de predicciones actualizado con clases y probabilidades.
 
-- Nuevas métricas.
-
-- Un reporte de drift.
-
-- Un archivo de predicciones actualizado.
-
-Todo el pipeline se puede volver a correr de manera reproducible simplemente actualizando los archivos de datos en airflow/data/ y disparando de nuevo el DAG.
+Todo el pipeline se puede volver a correr de manera reproducible simplemente actualizando los archivos de datos en `airflow/data/` y disparando de nuevo el DAG desde la interfaz web de Airflow.
 
