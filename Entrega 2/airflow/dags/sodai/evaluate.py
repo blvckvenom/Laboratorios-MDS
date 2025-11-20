@@ -225,9 +225,16 @@ def evaluar_modelo(
             X_sample = X
 
         try:
+            # convertir columnas categoricas a codigos numericos para shap
+            # shap no maneja bien el tipo 'category' de pandas con xgboost
+            X_sample_shap = X_sample.copy()
+            for col in categorical_cols:
+                if col in X_sample_shap.columns and X_sample_shap[col].dtype.name == 'category':
+                    X_sample_shap[col] = X_sample_shap[col].cat.codes
+
             shap_info = generar_graficos_shap(
                 model,
-                X_sample,
+                X_sample_shap,
                 feature_cols,
                 SHAP_DIR
             )

@@ -112,6 +112,7 @@ def calcular_drift(nombre_actual: str = "df_modelado.parquet",
 
     retorna path del reporte generado
     """
+    from .data_io import DATASETS_DIR
 
     # cargar dataset actual
     df_actual = cargar_dataset_modelado(nombre_actual)
@@ -137,12 +138,23 @@ def calcular_drift(nombre_actual: str = "df_modelado.parquet",
     }
 
     # intentar cargar dataset de referencia
+    # si no se especifica, buscar automaticamente el dataset de referencia guardado
     df_referencia = None
+    if nombre_referencia is None:
+        # buscar dataset de referencia automaticamente
+        ref_path = DATASETS_DIR / "df_modelado_referencia.parquet"
+        if ref_path.exists():
+            nombre_referencia = "df_modelado_referencia.parquet"
+            print(f"encontrado dataset de referencia: {nombre_referencia}")
+        else:
+            print("no existe dataset de referencia - primera ejecucion")
+
     if nombre_referencia:
         try:
             df_referencia = cargar_dataset_modelado(nombre_referencia)
             reporte["dataset_referencia"] = nombre_referencia
             reporte["n_rows_referencia"] = int(df_referencia.shape[0])
+            print(f"cargado dataset de referencia con {len(df_referencia)} filas")
         except Exception as e:
             print(f"no se pudo cargar dataset de referencia: {e}")
             print("usando solo estadisticas del dataset actual")
@@ -222,6 +234,12 @@ def calcular_drift(nombre_actual: str = "df_modelado.parquet",
         json.dump(reporte, f, indent=2, ensure_ascii=False)
 
     print(f"\nreporte de drift guardado en: {salida}")
+
+    # guardar dataset actual como referencia para la proxima ejecucion
+    # esto permite que en la siguiente ejecucion se compare automaticamente
+    ref_path = DATASETS_DIR / "df_modelado_referencia.parquet"
+    df_actual.to_parquet(ref_path, index=False)
+    print(f"dataset actual guardado como referencia en: {ref_path}")
 
     return salida
 

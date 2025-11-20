@@ -2,7 +2,6 @@ from datetime import datetime
 
 from airflow import DAG
 from airflow.operators.python import PythonOperator, BranchPythonOperator
-from airflow.operators.empty import EmptyOperator
 
 
 def _build_dataset(**context):
@@ -40,7 +39,7 @@ def _check_drift_decision(**context):
         return "train_model"
     else:
         print("no hay drift significativo - se usara modelo existente")
-        return "skip_training"
+        return "evaluate_model"
 
 
 def _train_model(**context):
@@ -114,16 +113,11 @@ with DAG(
         python_callable=_train_model,
     )
 
-    # skip training (si no hay drift)
-    skip_training = EmptyOperator(
-        task_id="skip_training",
-    )
-
-    # evaluar modelo (se ejecuta siempre despues de entrenar o skip)
+    # evaluar modelo (se ejecuta siempre despues de check_drift)
     evaluate_model = PythonOperator(
         task_id="evaluate_model",
         python_callable=_evaluate_model,
-        trigger_rule="none_failed_min_one_success",  # ejecutar si train o skip terminaron
+        trigger_rule="none_failed_min_one_success",  # ejecutar si train o drift terminaron
     )
 
     # generar predicciones
@@ -133,9 +127,9 @@ with DAG(
     )
 
     # definir flujo del dag con branching condicional
-    # build_dataset -> check_drift -> [train_model o skip_training]
-    # -> evaluate_model -> generate_predictions
+    # build_dataset -> check_drift -> [train_model -> evaluate_model o evaluate_model directo]
+    # -> generate_predictions
     build_dataset >> check_drift
-    check_drift >> [train_model, skip_training]
-    [train_model, skip_training] >> evaluate_model
+    check_drift >> [train_model, evaluate_model]
+    train_model >> evaluate_model
     evaluate_model >> generate_predictions
