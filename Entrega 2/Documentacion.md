@@ -18,11 +18,18 @@ El DAG principal se llama:
 Este DAG orquesta un pipeline completo de MLOps que incluye:
 
 1. Construir el dataset de modelamiento a partir de los datos crudos (`clientes`, `productos`, `transacciones`).
-2. Detectar automáticamente *data drift* comparando con datos de referencia anteriores.
-3. Reentrenar el modelo solo si se detecta drift (flujo condicional).
-4. Optimizar hiperparámetros con Optuna y registrar experimentos en MLflow.
-5. Evaluar el modelo y generar interpretabilidad con SHAP.
+2. Detectar automáticamente *data drift* comparando con datos de referencia anteriores usando PSI y KS tests.
+3. Reentrenar el modelo solo si se detecta drift (branching condicional inteligente).
+4. Optimizar hiperparámetros con Optuna (10 trials) y registrar experimentos en MLflow.
+5. Evaluar el modelo y generar interpretabilidad con SHAP (con soporte para features categóricas).
 6. Generar predicciones usando el modelo más reciente.
+
+### Integraciones clave
+
+- **MLflow**: tracking de experimentos, registro de modelos, métricas y artifacts (http://localhost:5000)
+- **Optuna**: optimización bayesiana de hiperparámetros con validación cruzada
+- **SHAP**: interpretabilidad del modelo con TreeExplainer
+- **Docker Compose**: orquestación de servicios (Airflow, PostgreSQL, MLflow)
 
 El DAG está definido en el archivo:
 
@@ -39,63 +46,93 @@ y utiliza funciones auxiliares dentro del paquete:
 
 A continuación se describe la funcionalidad de cada tarea y cómo se relacionan entre sí.
 
-| Task ID               | Función interna          | Descripción                                                                                                   | Depende de             |
-|-----------------------|--------------------------|---------------------------------------------------------------------------------------------------------------|------------------------|
-| `build_dataset`       | `_build_dataset`         | Carga los datos crudos (`clientes.parquet`, `productos.parquet`, `transacciones.parquet`) y construye el dataset de modelamiento con ingeniería de features avanzada (52 features totales: 27 numéricas, 10 categóricas, 5 binarias). El resultado se guarda como `df_modelado.parquet` en `artifacts/datasets/` y se pasa la ruta por XCom. | —                      |
-| `train_model`         | `_train_model`           | Entrena un modelo XGBoost clasificador binario con optimización de hiperparámetros usando Optuna (10 trials). Registra experimentos en MLflow y guarda el mejor modelo en `artifacts/models/sodai_model.joblib` junto con métricas, feature importance y categorical mappings en `artifacts/metrics/sodai_metrics.json`. | `build_dataset`        |
-| `evaluate_model`      | `_evaluate_model`        | Evalúa el modelo entrenado sobre el dataset completo calculando métricas de clasificación (accuracy, precision, recall, F1-score, ROC-AUC). Genera análisis de interpretabilidad con SHAP (summary plots, feature importance plots, dependence plots) guardados en `artifacts/shap/`. | `train_model`          |
-| `check_drift`         | `_check_drift`           | Detecta data drift comparando distribuciones entre el dataset de referencia y el actual usando PSI (Population Stability Index) y pruebas Kolmogorov-Smirnov. Genera reporte detallado en `artifacts/drift/drift_report.json` con scores por columna y visualizaciones. | `evaluate_model`       |
-| `generate_predictions`| `_generate_predictions`  | Genera predicciones binarias (0/1) y probabilidades (0-1) usando el modelo XGBoost entrenado. Agrega columnas `prediction` y `prediction_proba` al dataset y guarda el resultado en `artifacts/predictions/predicciones.parquet` con estadísticas de distribución. | `check_drift`          |
+| Task ID               | Función interna            | Descripción                                                                                                   | Depende de             |
+|-----------------------|----------------------------|---------------------------------------------------------------------------------------------------------------|------------------------|
+| `build_dataset`       | `_build_dataset`           | Carga los datos crudos (`clientes.parquet`, `productos.parquet`, `transacciones.parquet`) y construye el dataset de modelamiento con ingeniería de features avanzada (52 features totales: 27 numéricas, 10 categóricas, 5 binarias). El resultado se guarda como `df_modelado.parquet` en `artifacts/datasets/` y se pasa la ruta por XCom. | —                      |
+| `check_drift`         | `_check_drift_decision`    | **BranchPythonOperator** que detecta data drift comparando distribuciones entre el dataset de referencia y el actual usando PSI (Population Stability Index) y pruebas Kolmogorov-Smirnov. Genera reporte detallado en `artifacts/drift/drift_report.json`. Si detecta drift, retorna "train_model". Si no hay drift, retorna "evaluate_model" directamente. En primera ejecución siempre fuerza reentrenamiento. | `build_dataset`        |
+| `train_model`         | `_train_model`             | Entrena un modelo XGBoost clasificador binario con optimización de hiperparámetros usando Optuna (10 trials). Registra experimentos en MLflow y guarda el mejor modelo en `artifacts/models/sodai_model.joblib` junto con métricas, feature importance y categorical mappings en `artifacts/metrics/sodai_metrics.json`. Solo se ejecuta si check_drift detecta drift. | `check_drift` (condicional) |
+| `evaluate_model`      | `_evaluate_model`          | Evalúa el modelo entrenado sobre el dataset completo calculando métricas de clasificación (accuracy, precision, recall, F1-score, ROC-AUC). Genera análisis de interpretabilidad con SHAP (summary plots, feature importance plots) guardados en `artifacts/shap/`. Convierte features categóricas a códigos numéricos para compatibilidad con SHAP TreeExplainer. | `train_model` o `check_drift` |
+| `generate_predictions`| `_generate_predictions`    | Genera predicciones binarias (0/1) y probabilidades (0-1) usando el modelo XGBoost entrenado. Agrega columnas `prediction` y `prediction_proba` al dataset y guarda el resultado en `artifacts/predictions/predicciones.parquet` con estadísticas de distribución. | `evaluate_model`       |
 
-Las tareas se ejecutan de forma lineal con la siguiente cadena de dependencias:
+### Flujo condicional del DAG
 
-build_dataset → train_model → evaluate_model → check_drift → generate_predictions
+El DAG implementa branching inteligente basado en detección de drift:
+
+```
+build_dataset → check_drift (BranchPythonOperator)
+                     ↓
+          ┌──────────┴──────────┐
+          ↓                     ↓
+    train_model         evaluate_model
+          ↓                     ↓
+          └──────────┬──────────┘
+                     ↓
+           evaluate_model → generate_predictions
+```
+
+- **Primera ejecución**: No existe dataset de referencia → check_drift fuerza train_model
+- **Con drift detectado**: PSI >= 0.2 o cambios significativos → check_drift ejecuta train_model
+- **Sin drift**: Distribuciones estables → check_drift salta directamente a evaluate_model (ahorra tiempo y recursos)
 
 --- 
 
-## 3. Diagrama de flujo del pipeline completo  
+## 3. Diagrama de flujo del pipeline completo
 
-A continuación se muestra un diagrama de flujo lógico del pipeline (en notación tipo diagrama de bloques). Si se renderiza con Mermaid, puede visualizarse gráficamente:
+A continuación se muestra un diagrama de flujo lógico del pipeline con branching condicional:
 
-flowchart LR
+```mermaid
+flowchart TD
     A[Datos crudos<br/>clientes / productos / transacciones] --> B[build_dataset<br/>construir_df_modelado]
-    B --> C[train_model<br/>entrenar_modelo]
-    C --> D[evaluate_model<br/>evaluar_modelo]
-    D --> E[check_drift<br/>calcular_drift]
+    B --> C{check_drift<br/>BranchPythonOperator}
+    C -->|drift detectado| D[train_model<br/>entrenar_modelo]
+    C -->|sin drift| E[evaluate_model<br/>evaluar_modelo]
+    D --> E
     E --> F[generate_predictions<br/>generar_predicciones]
 
-    C --> M[Modelo entrenado<br/>sodai_model.joblib]
-    D --> N[Métricas<br/>sodai_metrics.json]
-    E --> O[Reporte drift<br/>drift_report.json]
-    F --> P[Predicciones<br/>predicciones.parquet]
+    D --> M[Modelo entrenado<br/>sodai_model.joblib]
+    D --> N[Experimento MLflow<br/>run_id + artifacts]
+    E --> O[Métricas + SHAP<br/>sodai_metrics.json]
+    C --> P[Reporte drift<br/>drift_report.json]
+    F --> Q[Predicciones<br/>predicciones.parquet]
+```
 
 Este diagrama resume:
 
-La entrada del pipeline: los archivos *.parquet de datos crudos en la carpeta data/.
-
-El paso intermedio: construcción del dataset de modelamiento y entrenamiento del modelo.
-
-Los artefactos generados: modelo, métricas, reporte de drift y predicciones.
+- **Entrada del pipeline**: los archivos *.parquet de datos crudos en la carpeta data/
+- **Branching condicional**: check_drift decide si reentrenar o usar modelo existente
+- **Optimización automática**: train_model usa Optuna (10 trials) y registra en MLflow
+- **Interpretabilidad**: evaluate_model genera plots de SHAP con soporte para categorical features
+- **Artefactos generados**: modelo, métricas MLflow, reporte de drift, análisis SHAP, predicciones
 
 --- 
 
 
 ## 4. Representación visual del DAG en la interfaz de Airflow
 
-En la interfaz web de Airflow (http://localhost:8080), el DAG se visualiza en la vista Graph, mostrando las tareas en secuencia:
+En la interfaz web de Airflow (http://localhost:8080), el DAG se visualiza en la vista Graph mostrando el flujo condicional:
 
-build_dataset → train_model → evaluate_model → check_drift → generate_predictions
+```
+build_dataset → check_drift (branch)
+                     ↓
+          ┌──────────┴──────────┐
+          ↓                     ↓
+    train_model         evaluate_model
+          ↓                     ↓
+          └──────────┬──────────┘
+                     ↓
+           evaluate_model → generate_predictions
+```
 
-Se incluye un pantallazo de esa vista, por ejemplo:
+Se incluye un pantallazo de esa vista:
 ![DAG sodai_training_and_scoring en Airflow](.\ssairflow.png)
 
-Esta captura de pantalla deja evidencia de:
+Esta captura de pantalla muestra:
 
-La estructura del DAG.
-
-El orden de ejecución de las tareas.
-
-El estado de cada tarea (por ejemplo success/failed durante pruebas).
+- La estructura del DAG con branching condicional
+- El BranchPythonOperator (check_drift) en color magenta
+- El orden de ejecución de las tareas según detección de drift
+- El estado de cada tarea (success/skipped/failed)
+- Las dependencias y el trigger_rule de evaluate_model (none_failed_min_one_success)
 
 --- 
 
