@@ -1,0 +1,18 @@
+{
+  "week_id": "week4",
+  "ground_truth_batch": "batch_t4.parquet",
+  "n_samples": 126456,
+  "n_actual_positives": 4834,
+  "n_predicted_positives": 7421,
+  "f1_score": 0.5351285189718482,
+  "precision": 0.4418541975475003,
+  "recall": 0.6783202316921804,
+  "accuracy": 0.9549487568798634,
+  "roc_auc": 0.9330480874609313,
+  "confusion_matrix": {
+    "TN": 117480,
+    "FP": 4142,
+    "FN": 1555,
+    "TP": 3279
+  }
+}

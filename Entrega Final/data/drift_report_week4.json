@@ -1,0 +1,40 @@
+{
+  "batch_id": "batch_t3",
+  "timestamp": "2025-12-08T23:17:31.589049",
+  "total_features_analyzed": 2,
+  "features_with_drift": 2,
+  "overall_drift_severity": "critical",
+  "requires_retraining": true,
+  "summary_stats": {
+    "total_features": 2,
+    "analyzed_features": 2,
+    "critical_drift_count": 2,
+    "warning_drift_count": 0,
+    "avg_psi": 3.0766948720734106,
+    "max_psi": 3.4662541314317847
+  },
+  "feature_results": [
+    {
+      "feature_name": "cp_productos_unicos",
+      "psi_value": 3.4662541314317847,
+      "js_divergence": 0.3168897759268505,
+      "ks_statistic": 0.7338090564235881,
+      "ks_pvalue": 3.71064075e-316,
+      "drift_detected": true,
+      "drift_severity": "critical"
+    },
+    {
+      "feature_name": "customer_total_compras",
+      "psi_value": 2.687135612715037,
+      "js_divergence": 0.14229855427476515,
+      "ks_statistic": 0.9034843621508343,
+      "ks_pvalue": 0.0,
+      "drift_detected": true,
+      "drift_severity": "critical"
+    }
+  ],
+  "week_id": "week4",
+  "psi_critical": true,
+  "js_critical": true,
+  "drift_detected": true
+}

@@ -1,0 +1,18 @@
+{
+  "week_id": "week3",
+  "ground_truth_batch": "batch_t3.parquet",
+  "n_samples": 124410,
+  "n_actual_positives": 4823,
+  "n_predicted_positives": 5582,
+  "f1_score": 0.5143680922633349,
+  "precision": 0.4793980652096023,
+  "recall": 0.5548413850300643,
+  "accuracy": 0.9593842938670525,
+  "roc_auc": 0.9293622490055149,
+  "confusion_matrix": {
+    "TN": 116681,
+    "FP": 2906,
+    "FN": 2147,
+    "TP": 2676
+  }
+}
